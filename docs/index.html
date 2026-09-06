@@ -971,7 +971,7 @@
 
   <footer>
     <span>Recitation topics beyond Sorting II are announced closer to the date. Items marked <em>to be confirmed</em> are not yet final.</span>
-    <span class="stamp">Updated September 1, 2026</span>
+    <span class="stamp">Updated September 6, 2026</span>
   </footer>
 </div>
 
@@ -994,9 +994,14 @@
         current = week;
       }
     }
+    var upNext = false;
     if (current === null) {
       for (var j = 0; j < weeks.length; j++) {
         if (!weeks[j].classList.contains("past")) { current = weeks[j]; break; }
+      }
+      if (current) {
+        current.classList.add("now");
+        upNext = true;
       }
     }
     if (current) {
@@ -1004,7 +1009,7 @@
       var head = current.querySelector(".wleft");
       var pill = document.createElement("span");
       pill.className = "nowpill";
-      pill.textContent = current.classList.contains("now") ? "this week" : "up next";
+      pill.textContent = upNext ? "up next" : "this week";
       head.appendChild(pill);
     } else {
       document.getElementById("jumpnow").style.display = "none";

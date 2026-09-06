@@ -503,9 +503,14 @@ PAGE = r"""<title>02-120 Semester Map</title>
         current = week;
       }
     }
+    var upNext = false;
     if (current === null) {
       for (var j = 0; j < weeks.length; j++) {
         if (!weeks[j].classList.contains("past")) { current = weeks[j]; break; }
+      }
+      if (current) {
+        current.classList.add("now");
+        upNext = true;
       }
     }
     if (current) {
@@ -513,7 +518,7 @@ PAGE = r"""<title>02-120 Semester Map</title>
       var head = current.querySelector(".wleft");
       var pill = document.createElement("span");
       pill.className = "nowpill";
-      pill.textContent = current.classList.contains("now") ? "this week" : "up next";
+      pill.textContent = upNext ? "up next" : "this week";
       head.appendChild(pill);
     } else {
       document.getElementById("jumpnow").style.display = "none";
