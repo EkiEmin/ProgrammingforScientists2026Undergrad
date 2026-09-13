@@ -200,7 +200,7 @@ weeks:
       - date: 2026-09-17
         kind: lecture
         title: "Simulating a presidential election"
-        detail: "Including parsing real polling data."
+        detail: "We parse real polling data out of a file and use it to simulate the Electoral College."
         prepare:
           - kind: required
             text: "Read the Chapter 2 core text"
@@ -213,12 +213,12 @@ weeks:
             text: "Simulating Craps"
             url: ca_craps
             minutes: 39
-          - kind: reference
-            text: "Parsing Election Polling Data covers the file-parsing details we move through quickly in class"
+          - kind: after
+            text: "Parsing Election Polling Data from Files, to replay what we build in class"
             url: ca_polling
             minutes: 61
           - kind: after
-            text: "Simulating an Election from Polling Data, to replay what we build in class"
+            text: "Simulating an Election from Polling Data, the second half of what we build in class"
             url: ca_election
       - date: 2026-09-18
         kind: recitation
