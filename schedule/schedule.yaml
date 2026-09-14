@@ -243,8 +243,9 @@ weeks:
         title: "Midterm 0"
         detail: "Introduction to programming and string algorithms."
       - date: 2026-09-25
-        kind: recitation
-        title: "Recitation 4"
+        kind: no-class
+        title: "No recitation: optional Midterm 0 debrief and project office hours"
+        detail: "The TAs open GHC 4211 at the usual section times. Attendance is not taken."
 
   - title: "Discovering a Self-Replicating Automaton"
     label: "Week 5"
@@ -283,7 +284,8 @@ weeks:
             url: ca_langton
       - date: 2026-10-02
         kind: recitation
-        title: "Recitation 5"
+        title: "Recitation 4: Binary search"
+        detail: "Looking up a k-mer in the sorted E. coli genome in 22 steps."
 
   - title: "Building a Gravity Simulator with Object-Oriented Programming"
     label: "Week 6"
@@ -309,7 +311,8 @@ weeks:
         detail: "We finish the engine and animate the solar system."
       - date: 2026-10-09
         kind: recitation
-        title: "Recitation 6"
+        title: "Recitation 5: Hashing"
+        detail: "Neighbor search for boids with a spatial grid, which is a hash table."
         due:
           - text: "HW3 due (automata and Gray-Scott)"
 
@@ -359,7 +362,8 @@ weeks:
             minutes: 123
       - date: 2026-10-23
         kind: recitation
-        title: "Recitation 7"
+        title: "Recitation 6: Binary search trees"
+        detail: "Recursion returns: range queries on the E. coli gene table."
         due:
           - text: "HW4 due (boids). Last hand-built assignment; AI tools unlock from HW5 onward."
             flag: true
@@ -379,8 +383,9 @@ weeks:
         title: "To be announced"
         tbd: true
       - date: 2026-10-30
-        kind: recitation
-        title: "Recitation 8"
+        kind: no-class
+        title: "No recitation: optional Midterm 1 debrief and project office hours"
+        detail: "The TAs open GHC 4211 at the usual section times. Attendance is not taken."
 
   - title: "Parallel programming 1"
     label: "Week 9"
@@ -406,7 +411,8 @@ weeks:
             minutes: 104
       - date: 2026-11-06
         kind: recitation
-        title: "Recitation 9"
+        title: "Recitation 7: Stacks and queues"
+        detail: "The call stack and the work queue, built from a linked list; validating RNA structures and Newick trees."
 
   - title: "Parallel programming 2 and assembly 1"
     label: "Week 10"
@@ -429,7 +435,8 @@ weeks:
             minutes: 188
       - date: 2026-11-13
         kind: recitation
-        title: "Recitation 10"
+        title: "Recitation 8: Graphs and breadth-first search"
+        detail: "Contact tracing on a real contact network."
 
   - title: "Assembly 2 and theory 1"
     label: "Week 11"
@@ -459,7 +466,8 @@ weeks:
             minutes: 120
       - date: 2026-11-20
         kind: recitation
-        title: "Recitation 11"
+        title: "Recitation 9: Depth-first search and hard problems"
+        detail: "Backtracking for the knight's tour, and why some graph questions may never be easy."
 
   - title: "Theory 2 and Thanksgiving"
     label: "Week 12"
@@ -491,8 +499,9 @@ weeks:
         kind: lecture
         title: "Project presentations"
       - date: 2026-12-04
-        kind: recitation
-        title: "Recitation 12"
+        kind: no-class
+        title: "No recitation: optional Midterm 2 review"
+        detail: "Attendance is not taken."
 
   - title: "Finals week"
     label: "Finals"
