@@ -238,6 +238,7 @@ weeks:
       - date: 2026-09-22
         kind: lecture
         title: "AI 3: Building a project"
+        detail: "Midterm 0 review, plus an open discussion of project ideas."
       - date: 2026-09-24
         kind: exam
         title: "Midterm 0"
