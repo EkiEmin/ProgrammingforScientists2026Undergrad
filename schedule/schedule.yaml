@@ -259,29 +259,30 @@ weeks:
           - text: "HW2 due (PRNG)"
       - date: 2026-09-29
         kind: lecture
-        title: "Game of Life I"
+        title: "Game of Life"
+        detail: "We implement and animate the Game of Life."
         prepare:
           - kind: required
-            text: "Read the Chapter 3 core text, first three sections"
+            text: "Read the Chapter 3 core text"
             url: ch3_text
           - kind: required
             text: "Chapter 3 code along: Introduction to Two-Dimensional Arrays"
             url: ca_2darrays
             minutes: 63
-          - kind: after
-            text: "Implementing the Game of Life, to replay what we build in class"
-            url: ca_gol
-      - date: 2026-10-01
-        kind: lecture
-        title: "Game of Life II"
-        detail: "We finish implementing and animating the Game of Life."
-        prepare:
           - kind: required
             text: "Chapter 3 code along: Introduction to Graphics"
             url: ca_graphics
             minutes: 64
           - kind: after
-            text: "Read the page on an infinitude of cellular automata and the self-replicating Langton loops; it leads directly into HW3"
+            text: "Implementing the Game of Life, to replay what we build in class"
+            url: ca_gol
+      - date: 2026-10-01
+        kind: lecture
+        title: "An infinitude of cellular automata"
+        detail: "We generalize the Game of Life to any cellular automaton, including the self-replicating Langton loops."
+        prepare:
+          - kind: after
+            text: "An Infinitude of Cellular Automata, including Self-Replicating Langton Loops, to replay what we build in class; it leads directly into HW3"
             url: ca_langton
       - date: 2026-10-02
         kind: recitation
