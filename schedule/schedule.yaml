@@ -253,14 +253,12 @@ weeks:
     start: 2026-09-28
     end: 2026-10-02
     days:
-      - date: 2026-09-28
-        kind: deadline
-        due:
-          - text: "HW2 due (PRNG)"
       - date: 2026-09-29
         kind: lecture
         title: "Game of Life"
         detail: "We implement and animate the Game of Life."
+        due:
+          - text: "HW2 due (PRNG), by the end of the day"
         prepare:
           - kind: required
             text: "Read the Chapter 3 core text"
