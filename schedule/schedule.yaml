@@ -272,7 +272,7 @@ weeks:
             text: "Chapter 3 code along: Introduction to Graphics"
             url: ca_graphics
             minutes: 64
-            note: "Run pip3 install pygame \"imageio[ffmpeg]\" numpy first. You need this code along to draw our boards in class."
+            note: "Run pip3 install pygame-ce \"imageio[ffmpeg]\" numpy first. You need this code along to draw our boards in class."
           - kind: required
             text: "Pull the course repository and copy Starter Code/game_of_life into python/src/; we build from it in class"
             url: "https://github.com/phcompeau/ProgrammingforScientists2026Undergrad"
