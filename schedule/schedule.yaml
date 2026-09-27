@@ -66,6 +66,7 @@ links:
   ca_langton: "https://programmingforlovers.com/chapter-3-building-a-self-replicating-cellular-automaton-with-top-down-programming/chapter-3-python-code-alongs/infinitude-of-cellular-automata-including-self-replicating-langton-loops/"
   ca_gol: "https://programmingforlovers.com/chapter-3-building-a-self-replicating-cellular-automaton-with-top-down-programming/chapter-3-python-code-alongs/implementing-game-of-life/"
   ca_classes: "https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/introduction-to-object-oriented-programming-in-python/"
+  ca_gravity: "https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/building-a-gravity-simulator-in-python/"
   ca_methods: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/first-evolutionary-tree-code-along-in-python/"
   ca_datatrees: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/data-for-trees/"
   ca_recursion: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/recursion-and-completing-our-upgma-implementation-in-python/"
@@ -308,11 +309,18 @@ weeks:
             text: "Chapter 4 code along: An Introduction to Classes"
             url: ca_classes
             minutes: 102
-            note: "This is the longest preparation of the semester. Start early."
+            note: "This is the longest preparation of the semester. Start early. Copy Starter Code/shapes into python/src/ and code along in the copy."
+          - kind: required
+            text: "Pull the course repository and copy Starter Code/gravity into python/src/; we build from it in class"
+            url: "https://github.com/phcompeau/ProgrammingforScientists2026Undergrad"
       - date: 2026-10-08
         kind: lecture
         title: "OOP II"
         detail: "We finish the engine and animate the solar system."
+        prepare:
+          - kind: after
+            text: "Building a Gravity Simulator, to replay what we build in class this week"
+            url: ca_gravity
       - date: 2026-10-09
         kind: recitation
         title: "Recitation 5: Hashing"
