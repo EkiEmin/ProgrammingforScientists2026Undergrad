@@ -82,6 +82,28 @@
   .works {
     margin: 26px 0 0; max-width: 78ch; color: var(--ink-2); font-size: 16.5px;
   }
+  .repo {
+    margin: 22px 0 0; max-width: 92ch; padding: 16px 18px;
+    background: var(--surface); border: 1px solid var(--rule-strong);
+    border-left: 3px solid var(--blue); border-radius: 4px; box-shadow: var(--shadow);
+    color: var(--ink-2); font-size: 15.5px;
+  }
+  .repo h3 {
+    margin: 0 0 8px; font-family: Spectral, Georgia, serif;
+    font-weight: 600; font-size: 19px; color: var(--ink);
+  }
+  .repo p { margin: 0 0 10px; }
+  .repo a { overflow-wrap: anywhere; }
+  .repo p:last-child { margin-bottom: 0; }
+  .repo code {
+    font-family: "IBM Plex Mono", monospace; font-size: 13.5px; color: var(--ink);
+    background: var(--surface-2); border: 1px solid var(--rule);
+    border-radius: 3px; padding: 1px 5px;
+  }
+  .repo .clone {
+    display: block; margin: 0 0 12px; padding: 9px 11px;
+    font-size: 13px; white-space: nowrap; overflow-x: auto;
+  }
   .legend {
     display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 22px 0 30px;
     border-bottom: 1px solid var(--rule); margin-bottom: 8px;
@@ -248,11 +270,18 @@
       <a href="https://p4l-website.vercel.app/courses/02-120-homework/" target="_blank" rel="noopener">Homework autograders</a>
       <a href="https://p4l-website.vercel.app/courses/02-120-daily-challenges/" target="_blank" rel="noopener">Daily challenges</a>
       <a href="https://programmingforlovers.com" target="_blank" rel="noopener">Code alongs</a>
-      <a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad" target="_blank" rel="noopener">Course code</a>
+      <a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad" target="_blank" rel="noopener">Course code on GitHub</a>
     </nav>
   </header>
 
   <p class="works">You learn the basics of programming on your own time, from the readings and code-along videos at programmingforlovers.com. We use class to build the scientific applications together. Each day below lists what to finish beforehand, and class starts from the assumption that you finished it.</p>
+
+  <section class="repo">
+    <h3>Course code on GitHub</h3>
+    <p>Everything we write together in class lives in <a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad" target="_blank" rel="noopener">github.com/phcompeau/ProgrammingforScientists2026Undergrad</a>, together with the starter files for every assignment. Clone it in the first week and pull from it before each class, because we add to it every week.</p>
+    <code class="clone">git clone https://github.com/phcompeau/ProgrammingforScientists2026Undergrad.git</code>
+    <p>New to Git? <a href="https://desktop.github.com" target="_blank" rel="noopener">GitHub Desktop</a> does the same thing with buttons: <b>File &gt; Clone Repository &gt; URL</b>, then <b>Fetch origin</b> and <b>Pull</b> each week. The <a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad#readme" target="_blank" rel="noopener">repository README</a> explains how <code>Starter Code</code> and <code>Finished Code</code> are organized, and how to keep your own edits out of Git's way.</p>
+  </section>
 
   <div class="legend">
     <span><i class="swatch" style="background:var(--rule-strong)"></i>Lecture</span>
@@ -429,8 +458,8 @@
           <span class="date">Thu 9/17</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Simulating a presidential election</div><div class="detail">Including parsing real polling data.</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation/chapter-2-core-text/" target="_blank" rel="noopener">Read the Chapter 2 core text</a></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation/chapter-2-python-code-alongs/generating-random-numbers-and-rolling-dice-python/" target="_blank" rel="noopener">Chapter 2 code along: Generating Random Numbers and Rolling Dice</a><span class="mins">31 min</span></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation/chapter-2-python-code-alongs/simulating-craps-with-monte-carlo-simulation-python/" target="_blank" rel="noopener">Simulating Craps</a><span class="mins">39 min</span></li><li class="prep prep-reference"><span class="tag tag-reference">Optional</span><a href="https://programmingforlovers.com/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation/chapter-2-python-code-alongs/parsing-election-polling-data-from-files-python/" target="_blank" rel="noopener">Parsing Election Polling Data covers the file-parsing details we move through quickly in class</a><span class="mins">1 hr 1 min</span></li><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation/chapter-2-python-code-alongs/simulating-an-election-from-polling-data-python/" target="_blank" rel="noopener">Simulating an Election from Polling Data, to replay what we build in class</a></li></ul></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Simulating a presidential election</div><div class="detail">We parse real polling data out of a file and use it to simulate the Electoral College.</div></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation/chapter-2-core-text/" target="_blank" rel="noopener">Read the Chapter 2 core text</a></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation/chapter-2-python-code-alongs/generating-random-numbers-and-rolling-dice-python/" target="_blank" rel="noopener">Chapter 2 code along: Generating Random Numbers and Rolling Dice</a><span class="mins">31 min</span></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation/chapter-2-python-code-alongs/simulating-craps-with-monte-carlo-simulation-python/" target="_blank" rel="noopener">Simulating Craps</a><span class="mins">39 min</span></li><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation/chapter-2-python-code-alongs/parsing-election-polling-data-from-files-python/" target="_blank" rel="noopener">Parsing Election Polling Data from Files, to replay what we build in class</a><span class="mins">1 hr 1 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation/chapter-2-python-code-alongs/simulating-an-election-from-polling-data-python/" target="_blank" rel="noopener">Simulating an Election from Polling Data, the second half of what we build in class</a></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
       <div class="row row-recitation" data-date="2026-09-18">
@@ -472,7 +501,7 @@
           <span class="date">Tue 9/22</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">AI 3: Building a project</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">AI 3: Building a project</div><div class="detail">Midterm 0 review, plus an open discussion of project ideas.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
@@ -485,12 +514,12 @@
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
-      <div class="row row-recitation" data-date="2026-09-25">
+      <div class="row row-no-class" data-date="2026-09-25">
         <div class="cell cell-date">
           <span class="date">Fri 9/25</span>
-          <span class="kind">Recitation</span>
+          <span class="kind">No class</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 4</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">No recitation: optional Midterm 0 debrief and project office hours</div><div class="detail">The TAs open GHC 4211 at the usual section times. Attendance is not taken.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div></div>
@@ -510,31 +539,22 @@
           <div class="cell">Complete before class</div>
           <div class="cell">Due</div>
         </div>
-      <div class="row row-deadline" data-date="2026-09-28">
-        <div class="cell cell-date">
-          <span class="date">Mon 9/28</span>
-          <span class="kind">Deadline</span>
-        </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><span class="none">&middot;</span></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
-        <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due"><a href="https://p4l-website.vercel.app/courses/02-120-homework/" target="_blank" rel="noopener">HW2 due (PRNG)</a></li></ul></div>
-      </div>
       <div class="row row-lecture" data-date="2026-09-29">
         <div class="cell cell-date">
           <span class="date">Tue 9/29</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Game of Life I</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-3-building-a-self-replicating-cellular-automaton-with-top-down-programming/chapter-3-core-text/" target="_blank" rel="noopener">Read the Chapter 3 core text, first three sections</a></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-3-building-a-self-replicating-cellular-automaton-with-top-down-programming/chapter-3-python-code-alongs/introduction-to-two-dimensional-arrays/" target="_blank" rel="noopener">Chapter 3 code along: Introduction to Two-Dimensional Arrays</a><span class="mins">1 hr 3 min</span></li><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-3-building-a-self-replicating-cellular-automaton-with-top-down-programming/chapter-3-python-code-alongs/implementing-game-of-life/" target="_blank" rel="noopener">Implementing the Game of Life, to replay what we build in class</a></li></ul></div>
-        <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Game of Life</div><div class="detail">We implement and animate the Game of Life.</div></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-3-building-a-self-replicating-cellular-automaton-with-top-down-programming/chapter-3-core-text/" target="_blank" rel="noopener">Read the Chapter 3 core text</a></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-3-building-a-self-replicating-cellular-automaton-with-top-down-programming/chapter-3-python-code-alongs/introduction-to-two-dimensional-arrays/" target="_blank" rel="noopener">Chapter 3 code along: Introduction to Two-Dimensional Arrays</a><span class="mins">1 hr 3 min</span></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-3-building-a-self-replicating-cellular-automaton-with-top-down-programming/chapter-3-python-code-alongs/introduction-to-graphics/" target="_blank" rel="noopener">Chapter 3 code along: Introduction to Graphics</a><span class="mins">1 hr 4 min</span><span class="prepnote">Run pip3 install pygame-ce &quot;imageio[ffmpeg]&quot; numpy first. You need this code along to draw our boards in class.</span></li><li class="prep prep-required"><a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad" target="_blank" rel="noopener">Pull the course repository and copy Starter Code/game_of_life into python/src/; we build from it in class</a></li><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-3-building-a-self-replicating-cellular-automaton-with-top-down-programming/chapter-3-python-code-alongs/implementing-game-of-life/" target="_blank" rel="noopener">Implementing the Game of Life, to replay what we build in class</a></li></ul></div>
+        <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due"><a href="https://p4l-website.vercel.app/courses/02-120-homework/" target="_blank" rel="noopener">HW2 due (PRNG), by the end of the day</a></li></ul></div>
       </div>
       <div class="row row-lecture" data-date="2026-10-01">
         <div class="cell cell-date">
           <span class="date">Thu 10/1</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Game of Life II</div><div class="detail">We finish implementing and animating the Game of Life.</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-3-building-a-self-replicating-cellular-automaton-with-top-down-programming/chapter-3-python-code-alongs/introduction-to-graphics/" target="_blank" rel="noopener">Chapter 3 code along: Introduction to Graphics</a><span class="mins">1 hr 4 min</span></li><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-3-building-a-self-replicating-cellular-automaton-with-top-down-programming/chapter-3-python-code-alongs/infinitude-of-cellular-automata-including-self-replicating-langton-loops/" target="_blank" rel="noopener">Read the page on an infinitude of cellular automata and the self-replicating Langton loops; it leads directly into HW3</a></li></ul></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">An infinitude of cellular automata</div><div class="detail">We generalize the Game of Life to any cellular automaton, including the self-replicating Langton loops.</div></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-3-building-a-self-replicating-cellular-automaton-with-top-down-programming/chapter-3-python-code-alongs/infinitude-of-cellular-automata-including-self-replicating-langton-loops/" target="_blank" rel="noopener">An Infinitude of Cellular Automata, including Self-Replicating Langton Loops, to replay what we build in class; it leads directly into HW3</a></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
       <div class="row row-recitation" data-date="2026-10-02">
@@ -542,7 +562,7 @@
           <span class="date">Fri 10/2</span>
           <span class="kind">Recitation</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 5</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 4: Binary search</div><div class="detail">Looking up a k-mer in the sorted E. coli genome in 22 steps.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div></div>
@@ -568,7 +588,7 @@
           <span class="kind">Lecture</span>
         </div>
         <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">OOP I</div><div class="detail">We plan the gravity simulator top-down and start the physics engine.</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-4/chapter-4-core-text/" target="_blank" rel="noopener">Read the Chapter 4 core text</a></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/introduction-to-object-oriented-programming-in-python/" target="_blank" rel="noopener">Chapter 4 code along: An Introduction to Classes</a><span class="mins">1 hr 42 min</span><span class="prepnote">This is the longest preparation of the semester. Start early.</span></li></ul></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-4/chapter-4-core-text/" target="_blank" rel="noopener">Read the Chapter 4 core text</a></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/introduction-to-object-oriented-programming-in-python/" target="_blank" rel="noopener">Chapter 4 code along: An Introduction to Classes</a><span class="mins">1 hr 42 min</span><span class="prepnote">This is the longest preparation of the semester. Start early. Copy Starter Code/shapes into python/src/ and code along in the copy.</span></li><li class="prep prep-required"><a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad" target="_blank" rel="noopener">Pull the course repository and copy Starter Code/gravity into python/src/; we build from it in class</a></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
       <div class="row row-lecture" data-date="2026-10-08">
@@ -577,7 +597,7 @@
           <span class="kind">Lecture</span>
         </div>
         <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">OOP II</div><div class="detail">We finish the engine and animate the solar system.</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/building-a-gravity-simulator-in-python/" target="_blank" rel="noopener">Building a Gravity Simulator, to replay what we build in class this week</a></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
       <div class="row row-recitation" data-date="2026-10-09">
@@ -585,7 +605,7 @@
           <span class="date">Fri 10/9</span>
           <span class="kind">Recitation</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 6</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 5: Hashing</div><div class="detail">Neighbor search for boids with a spatial grid, which is a hash table.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due"><a href="https://p4l-website.vercel.app/courses/02-120-homework/" target="_blank" rel="noopener">HW3 due (automata and Gray-Scott)</a></li></ul></div>
       </div></div>
@@ -662,7 +682,7 @@
           <span class="date">Fri 10/23</span>
           <span class="kind">Recitation</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 7</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 6: Binary search trees</div><div class="detail">Recursion returns: range queries on the E. coli gene table.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due due-flag"><a href="https://p4l-website.vercel.app/courses/02-120-homework/" target="_blank" rel="noopener">HW4 due (boids). Last hand-built assignment; AI tools unlock from HW5 onward.</a></li></ul></div>
       </div></div>
@@ -700,12 +720,12 @@
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
-      <div class="row row-recitation" data-date="2026-10-30">
+      <div class="row row-no-class" data-date="2026-10-30">
         <div class="cell cell-date">
           <span class="date">Fri 10/30</span>
-          <span class="kind">Recitation</span>
+          <span class="kind">No class</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 8</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">No recitation: optional Midterm 1 debrief and project office hours</div><div class="detail">The TAs open GHC 4211 at the usual section times. Attendance is not taken.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div></div>
@@ -757,7 +777,7 @@
           <span class="date">Fri 11/6</span>
           <span class="kind">Recitation</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 9</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 7: Stacks and queues</div><div class="detail">The call stack and the work queue, built from a linked list; validating RNA structures and Newick trees.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div></div>
@@ -800,7 +820,7 @@
           <span class="date">Fri 11/13</span>
           <span class="kind">Recitation</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 10</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 8: Graphs and breadth-first search</div><div class="detail">Contact tracing on a real contact network.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div></div>
@@ -852,7 +872,7 @@
           <span class="date">Fri 11/20</span>
           <span class="kind">Recitation</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 11</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 9: Depth-first search and hard problems</div><div class="detail">Backtracking for the knight&#x27;s tour, and why some graph questions may never be easy.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div></div>
@@ -933,12 +953,12 @@
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
-      <div class="row row-recitation" data-date="2026-12-04">
+      <div class="row row-no-class" data-date="2026-12-04">
         <div class="cell cell-date">
           <span class="date">Fri 12/4</span>
-          <span class="kind">Recitation</span>
+          <span class="kind">No class</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 12</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">No recitation: optional Midterm 2 review</div><div class="detail">Attendance is not taken.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div></div>
@@ -971,7 +991,7 @@
 
   <footer>
     <span>Recitation topics beyond Sorting II are announced closer to the date. Items marked <em>to be confirmed</em> are not yet final.</span>
-    <span class="stamp">Updated September 6, 2026</span>
+    <span class="stamp">Updated September 27, 2026</span>
   </footer>
 </div>
 

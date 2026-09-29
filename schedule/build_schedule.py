@@ -206,6 +206,9 @@ def render_page(data: dict[str, Any]) -> str:
     for week in data["weeks"]:
         weeks.append(render_week(week, course, links))
     stamp = datetime.date.today().strftime("%B %-d, %Y")
+    repo = course["repo"]
+    repo_short = repo.split("://", 1)[-1].rstrip("/")
+    repo_clone = repo.rstrip("/") + ".git"
     return PAGE.replace("{{WEEKS}}", "".join(weeks)) \
                .replace("{{NUMBER}}", esc(course["number"])) \
                .replace("{{TITLE}}", esc(course["title"])) \
@@ -218,7 +221,9 @@ def render_page(data: dict[str, Any]) -> str:
                .replace("{{ED}}", esc(course["ed"])) \
                .replace("{{HOMEWORK}}", esc(course["homework"])) \
                .replace("{{DAILY}}", esc(course["daily"])) \
-               .replace("{{REPO}}", esc(course["repo"])) \
+               .replace("{{REPO}}", esc(repo)) \
+               .replace("{{REPO_SHORT}}", esc(repo_short)) \
+               .replace("{{REPO_CLONE}}", esc(repo_clone)) \
                .replace("{{STAMP}}", esc(stamp))
 
 
@@ -298,6 +303,28 @@ PAGE = r"""<title>02-120 Semester Map</title>
 
   .works {
     margin: 26px 0 0; max-width: 78ch; color: var(--ink-2); font-size: 16.5px;
+  }
+  .repo {
+    margin: 22px 0 0; max-width: 92ch; padding: 16px 18px;
+    background: var(--surface); border: 1px solid var(--rule-strong);
+    border-left: 3px solid var(--blue); border-radius: 4px; box-shadow: var(--shadow);
+    color: var(--ink-2); font-size: 15.5px;
+  }
+  .repo h3 {
+    margin: 0 0 8px; font-family: Spectral, Georgia, serif;
+    font-weight: 600; font-size: 19px; color: var(--ink);
+  }
+  .repo p { margin: 0 0 10px; }
+  .repo a { overflow-wrap: anywhere; }
+  .repo p:last-child { margin-bottom: 0; }
+  .repo code {
+    font-family: "IBM Plex Mono", monospace; font-size: 13.5px; color: var(--ink);
+    background: var(--surface-2); border: 1px solid var(--rule);
+    border-radius: 3px; padding: 1px 5px;
+  }
+  .repo .clone {
+    display: block; margin: 0 0 12px; padding: 9px 11px;
+    font-size: 13px; white-space: nowrap; overflow-x: auto;
   }
   .legend {
     display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 22px 0 30px;
@@ -463,11 +490,18 @@ PAGE = r"""<title>02-120 Semester Map</title>
       <a href="{{HOMEWORK}}" target="_blank" rel="noopener">Homework autograders</a>
       <a href="{{DAILY}}" target="_blank" rel="noopener">Daily challenges</a>
       <a href="https://programmingforlovers.com" target="_blank" rel="noopener">Code alongs</a>
-      <a href="{{REPO}}" target="_blank" rel="noopener">Course code</a>
+      <a href="{{REPO}}" target="_blank" rel="noopener">Course code on GitHub</a>
     </nav>
   </header>
 
   <p class="works">{{WORKS}}</p>
+
+  <section class="repo">
+    <h3>Course code on GitHub</h3>
+    <p>Everything we write together in class lives in <a href="{{REPO}}" target="_blank" rel="noopener">{{REPO_SHORT}}</a>, together with the starter files for every assignment. Clone it in the first week and pull from it before each class, because we add to it every week.</p>
+    <code class="clone">git clone {{REPO_CLONE}}</code>
+    <p>New to Git? <a href="https://desktop.github.com" target="_blank" rel="noopener">GitHub Desktop</a> does the same thing with buttons: <b>File &gt; Clone Repository &gt; URL</b>, then <b>Fetch origin</b> and <b>Pull</b> each week. The <a href="{{REPO}}#readme" target="_blank" rel="noopener">repository README</a> explains how <code>Starter Code</code> and <code>Finished Code</code> are organized, and how to keep your own edits out of Git's way.</p>
+  </section>
 
   <div class="legend">
     <span><i class="swatch" style="background:var(--rule-strong)"></i>Lecture</span>

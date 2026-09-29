@@ -66,6 +66,7 @@ links:
   ca_langton: "https://programmingforlovers.com/chapter-3-building-a-self-replicating-cellular-automaton-with-top-down-programming/chapter-3-python-code-alongs/infinitude-of-cellular-automata-including-self-replicating-langton-loops/"
   ca_gol: "https://programmingforlovers.com/chapter-3-building-a-self-replicating-cellular-automaton-with-top-down-programming/chapter-3-python-code-alongs/implementing-game-of-life/"
   ca_classes: "https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/introduction-to-object-oriented-programming-in-python/"
+  ca_gravity: "https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/building-a-gravity-simulator-in-python/"
   ca_methods: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/first-evolutionary-tree-code-along-in-python/"
   ca_datatrees: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/data-for-trees/"
   ca_recursion: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/recursion-and-completing-our-upgma-implementation-in-python/"
@@ -200,7 +201,7 @@ weeks:
       - date: 2026-09-17
         kind: lecture
         title: "Simulating a presidential election"
-        detail: "Including parsing real polling data."
+        detail: "We parse real polling data out of a file and use it to simulate the Electoral College."
         prepare:
           - kind: required
             text: "Read the Chapter 2 core text"
@@ -213,12 +214,12 @@ weeks:
             text: "Simulating Craps"
             url: ca_craps
             minutes: 39
-          - kind: reference
-            text: "Parsing Election Polling Data covers the file-parsing details we move through quickly in class"
+          - kind: after
+            text: "Parsing Election Polling Data from Files, to replay what we build in class"
             url: ca_polling
             minutes: 61
           - kind: after
-            text: "Simulating an Election from Polling Data, to replay what we build in class"
+            text: "Simulating an Election from Polling Data, the second half of what we build in class"
             url: ca_election
       - date: 2026-09-18
         kind: recitation
@@ -238,52 +239,58 @@ weeks:
       - date: 2026-09-22
         kind: lecture
         title: "AI 3: Building a project"
+        detail: "Midterm 0 review, plus an open discussion of project ideas."
       - date: 2026-09-24
         kind: exam
         title: "Midterm 0"
         detail: "Introduction to programming and string algorithms."
       - date: 2026-09-25
-        kind: recitation
-        title: "Recitation 4"
+        kind: no-class
+        title: "No recitation: optional Midterm 0 debrief and project office hours"
+        detail: "The TAs open GHC 4211 at the usual section times. Attendance is not taken."
 
   - title: "Discovering a Self-Replicating Automaton"
     label: "Week 5"
     start: 2026-09-28
     end: 2026-10-02
     days:
-      - date: 2026-09-28
-        kind: deadline
-        due:
-          - text: "HW2 due (PRNG)"
       - date: 2026-09-29
         kind: lecture
-        title: "Game of Life I"
+        title: "Game of Life"
+        detail: "We implement and animate the Game of Life."
+        due:
+          - text: "HW2 due (PRNG), by the end of the day"
         prepare:
           - kind: required
-            text: "Read the Chapter 3 core text, first three sections"
+            text: "Read the Chapter 3 core text"
             url: ch3_text
           - kind: required
             text: "Chapter 3 code along: Introduction to Two-Dimensional Arrays"
             url: ca_2darrays
             minutes: 63
+          - kind: required
+            text: "Chapter 3 code along: Introduction to Graphics"
+            url: ca_graphics
+            minutes: 64
+            note: "Run pip3 install pygame-ce \"imageio[ffmpeg]\" numpy first. You need this code along to draw our boards in class."
+          - kind: required
+            text: "Pull the course repository and copy Starter Code/game_of_life into python/src/; we build from it in class"
+            url: "https://github.com/phcompeau/ProgrammingforScientists2026Undergrad"
           - kind: after
             text: "Implementing the Game of Life, to replay what we build in class"
             url: ca_gol
       - date: 2026-10-01
         kind: lecture
-        title: "Game of Life II"
-        detail: "We finish implementing and animating the Game of Life."
+        title: "An infinitude of cellular automata"
+        detail: "We generalize the Game of Life to any cellular automaton, including the self-replicating Langton loops."
         prepare:
-          - kind: required
-            text: "Chapter 3 code along: Introduction to Graphics"
-            url: ca_graphics
-            minutes: 64
           - kind: after
-            text: "Read the page on an infinitude of cellular automata and the self-replicating Langton loops; it leads directly into HW3"
+            text: "An Infinitude of Cellular Automata, including Self-Replicating Langton Loops, to replay what we build in class; it leads directly into HW3"
             url: ca_langton
       - date: 2026-10-02
         kind: recitation
-        title: "Recitation 5"
+        title: "Recitation 4: Binary search"
+        detail: "Looking up a k-mer in the sorted E. coli genome in 22 steps."
 
   - title: "Building a Gravity Simulator with Object-Oriented Programming"
     label: "Week 6"
@@ -302,14 +309,22 @@ weeks:
             text: "Chapter 4 code along: An Introduction to Classes"
             url: ca_classes
             minutes: 102
-            note: "This is the longest preparation of the semester. Start early."
+            note: "This is the longest preparation of the semester. Start early. Copy Starter Code/shapes into python/src/ and code along in the copy."
+          - kind: required
+            text: "Pull the course repository and copy Starter Code/gravity into python/src/; we build from it in class"
+            url: "https://github.com/phcompeau/ProgrammingforScientists2026Undergrad"
       - date: 2026-10-08
         kind: lecture
         title: "OOP II"
         detail: "We finish the engine and animate the solar system."
+        prepare:
+          - kind: after
+            text: "Building a Gravity Simulator, to replay what we build in class this week"
+            url: ca_gravity
       - date: 2026-10-09
         kind: recitation
-        title: "Recitation 6"
+        title: "Recitation 5: Hashing"
+        detail: "Neighbor search for boids with a spatial grid, which is a hash table."
         due:
           - text: "HW3 due (automata and Gray-Scott)"
 
@@ -359,7 +374,8 @@ weeks:
             minutes: 123
       - date: 2026-10-23
         kind: recitation
-        title: "Recitation 7"
+        title: "Recitation 6: Binary search trees"
+        detail: "Recursion returns: range queries on the E. coli gene table."
         due:
           - text: "HW4 due (boids). Last hand-built assignment; AI tools unlock from HW5 onward."
             flag: true
@@ -379,8 +395,9 @@ weeks:
         title: "To be announced"
         tbd: true
       - date: 2026-10-30
-        kind: recitation
-        title: "Recitation 8"
+        kind: no-class
+        title: "No recitation: optional Midterm 1 debrief and project office hours"
+        detail: "The TAs open GHC 4211 at the usual section times. Attendance is not taken."
 
   - title: "Parallel programming 1"
     label: "Week 9"
@@ -406,7 +423,8 @@ weeks:
             minutes: 104
       - date: 2026-11-06
         kind: recitation
-        title: "Recitation 9"
+        title: "Recitation 7: Stacks and queues"
+        detail: "The call stack and the work queue, built from a linked list; validating RNA structures and Newick trees."
 
   - title: "Parallel programming 2 and assembly 1"
     label: "Week 10"
@@ -429,7 +447,8 @@ weeks:
             minutes: 188
       - date: 2026-11-13
         kind: recitation
-        title: "Recitation 10"
+        title: "Recitation 8: Graphs and breadth-first search"
+        detail: "Contact tracing on a real contact network."
 
   - title: "Assembly 2 and theory 1"
     label: "Week 11"
@@ -459,7 +478,8 @@ weeks:
             minutes: 120
       - date: 2026-11-20
         kind: recitation
-        title: "Recitation 11"
+        title: "Recitation 9: Depth-first search and hard problems"
+        detail: "Backtracking for the knight's tour, and why some graph questions may never be easy."
 
   - title: "Theory 2 and Thanksgiving"
     label: "Week 12"
@@ -491,8 +511,9 @@ weeks:
         kind: lecture
         title: "Project presentations"
       - date: 2026-12-04
-        kind: recitation
-        title: "Recitation 12"
+        kind: no-class
+        title: "No recitation: optional Midterm 2 review"
+        detail: "Attendance is not taken."
 
   - title: "Finals week"
     label: "Finals"
