@@ -52,7 +52,7 @@ def update_universe(current_universe: Universe, time: float) -> Universe:
 
     # first, move every body using its current velocity and acceleration
     for b in new_universe.bodies:
-        b.position = update_position(b, b.acceleration, b.velocity, time)
+        b.position = update_position(b, time)
 
     # then, compute new accelerations from the new positions, and update velocities
     for b in new_universe.bodies:
@@ -216,7 +216,7 @@ def update_velocity(b: Body, old_acceleration: OrderedPair, time: float) -> Orde
     return OrderedPair(vx, vy)
 
 
-def update_position(b: Body, old_acc: OrderedPair, old_vel: OrderedPair, time: float) -> OrderedPair:
+def update_position(b: Body, time: float) -> OrderedPair:
     """
     Update position using constant-acceleration kinematics.
 
@@ -224,14 +224,14 @@ def update_position(b: Body, old_acc: OrderedPair, old_vel: OrderedPair, time: f
         p_{t+Δt} = p_t + v_t * Δt + 0.5 * a_t * Δt²
 
     Args:
-        b: The body whose position is being updated.
-        old_acc: The acceleration at the previous time step.
-        old_vel: The velocity at the previous time step.
+        b: The body whose position is being updated. Its current velocity
+            and acceleration are used, so call this before either of them
+            is updated.
         time: The time step Δt.
 
     Returns:
         An OrderedPair containing the updated position (px, py).
     """
-    px = b.position.x + old_vel.x * time + 0.5 * old_acc.x * time * time
-    py = b.position.y + old_vel.y * time + 0.5 * old_acc.y * time * time
+    px = b.position.x + b.velocity.x * time + 0.5 * b.acceleration.x * time * time
+    py = b.position.y + b.velocity.y * time + 0.5 * b.acceleration.y * time * time
     return OrderedPair(px, py)

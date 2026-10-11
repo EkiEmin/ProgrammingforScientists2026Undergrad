@@ -76,7 +76,7 @@ def update_velocity(b: Body, old_acceleration: OrderedPair, time: float) -> Orde
     pass
 
 
-def update_position(b: Body, old_acc: OrderedPair, old_vel: OrderedPair, time: float) -> OrderedPair:
+def update_position(b: Body, time: float) -> OrderedPair:
     """
     Update position using constant-acceleration kinematics.
 
@@ -84,9 +84,9 @@ def update_position(b: Body, old_acc: OrderedPair, old_vel: OrderedPair, time: f
         p_{t+Δt} = p_t + v_t * Δt + 0.5 * a_t * Δt^2
 
     Args:
-        b (Body): The body whose position is being updated.
-        old_acc (OrderedPair): The acceleration at the previous time step.
-        old_vel (OrderedPair): The velocity at the previous time step.
+        b (Body): The body whose position is being updated. Its current
+            velocity and acceleration are used, so call this before either
+            of them is updated.
         time (float): The time step Δt.
 
     Returns:
