@@ -573,10 +573,9 @@ weeks:
   - title: "Finals week"
     label: "Finals"
     start: 2026-12-07
-    end: 2026-12-11
+    end: 2026-12-13
     days:
-      - date: 2026-12-07
+      - date: 2026-12-13
         kind: exam
         title: "Midterm 2, held in the final exam period"
-        detail: "OOP II, parallel programming, assembly language, and theory. Exact date and time set by the registrar."
-        tbd: true
+        detail: "Sunday 5:30-8:30 p.m., in person; room to be announced. OOP II, parallel programming, assembly language, and theory."
