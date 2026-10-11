@@ -418,7 +418,7 @@ weeks:
         title: "Recitation 6: Binary search trees"
         detail: "Recursion returns: range queries on the E. coli gene table."
         due:
-          - text: "HW4 due (boids). Last hand-built assignment; AI tools unlock from HW5 onward."
+          - text: "HW4 due (boids)"
             flag: true
 
   - title: "Midterm 1"
