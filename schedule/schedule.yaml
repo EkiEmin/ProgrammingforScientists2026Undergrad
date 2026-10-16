@@ -99,6 +99,7 @@ links:
   ca_gravity: "https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/building-a-gravity-simulator-in-python/"
   ca_methods: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/first-evolutionary-tree-code-along-in-python/"
   ca_datatrees: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/data-for-trees/"
+  ca_upgma: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/implementing-upgma-in-python/"
   ca_recursion: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/recursion-and-completing-our-upgma-implementation-in-python/"
 
 weeks:
@@ -401,13 +402,20 @@ weeks:
             url: ca_methods
             minutes: 107
           - kind: required
-            text: "Data for Trees"
+            text: "Pull the course repository and copy Starter Code/upgma into python/src/; we build from it in class"
+            url: "https://github.com/phcompeau/ProgrammingforScientists2026Undergrad"
+          - kind: after
+            text: "Data for Trees, to replay what we cover in class"
             url: ca_datatrees
             minutes: 7
+          - kind: after
+            text: "Implementing UPGMA, to replay what we build in class this week"
+            url: ca_upgma
+            minutes: 84
       - date: 2026-10-22
         kind: lecture
         title: "Trees II"
-        detail: "We finish UPGMA and apply it to real data."
+        detail: "We finish the UPGMA engine and visualize trees built from real data."
         prepare:
           - kind: after
             text: "Recursion and Completing UPGMA covers the remaining details, including Newick format"

@@ -1,0 +1,3 @@
+Complete mitochondrial genome sequences (~16.5 kb) for 12 mammalian species, downloaded from NCBI RefSeq. This dataset illustrates one of the most surprising results in molecular phylogenetics: whales and dolphins evolved from within the even-toed ungulates (Artiodactyla), and the hippopotamus is more closely related to whales than to horses or rhinos.
+
+Pairwise distances are Jukes-Cantor corrected distances computed from MAFFT-aligned complete mitochondrial genome sequences.

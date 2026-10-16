@@ -1,0 +1,3 @@
+Complete mitochondrial genome sequences (~16.5 kb) for 10 species in and around family Ursidae, downloaded from NCBI RefSeq. Molecular data definitively placed the giant panda within the bears, resolving a long-standing debate about whether it was a bear, a relative of the red panda, or something else entirely.
+
+Pairwise distances are Jukes-Cantor corrected distances computed from MAFFT-aligned complete mitochondrial genome sequences.
