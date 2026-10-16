@@ -26,9 +26,8 @@ class Node:
         """
         Method that returns true if given node is a leaf and false otherwise.
         """
-        if self.child1 is None and self.child2 is None:
-            return True
-        return False
+        #TODO: Implement
+        pass
 
     def count_leaves(self) -> int:
         """
