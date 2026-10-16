@@ -404,6 +404,10 @@ weeks:
           - kind: required
             text: "Pull the course repository and copy Starter Code/upgma into python/src/; we build from it in class"
             url: "https://github.com/phcompeau/ProgrammingforScientists2026Undergrad"
+          - kind: required
+            text: "Install R, then RStudio Desktop; we use them on Thursday to draw our trees"
+            url: "https://cran.r-project.org/"
+            note: "Install R first from CRAN, then RStudio Desktop from https://posit.co/download/rstudio-desktop/. Then open RStudio and run install.packages(c(\"ape\", \"rstudioapi\")) in its console."
           - kind: after
             text: "Code along video: Trees Part 1, to replay what we build in class"
             url: "https://www.youtube.com/watch?v=VtINhBpsTEY&t=407s"
