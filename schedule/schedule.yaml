@@ -398,29 +398,25 @@ weeks:
             text: "Read the Chapter 5 core text"
             url: ch5_text
           - kind: required
-            text: "Chapter 5 code along: Returning to Shapes, An Introduction to Methods"
-            url: ca_methods
+            text: "Code along video: Methods and Trees (start at 7:14 and code along in a copy of Starter Code/shapes_methods)"
+            url: "https://www.youtube.com/watch?v=Fiy8fIB5T8Q&t=434s"
             minutes: 107
           - kind: required
             text: "Pull the course repository and copy Starter Code/upgma into python/src/; we build from it in class"
             url: "https://github.com/phcompeau/ProgrammingforScientists2026Undergrad"
           - kind: after
-            text: "Data for Trees, to replay what we cover in class"
-            url: ca_datatrees
-            minutes: 7
-          - kind: after
-            text: "Implementing UPGMA, to replay what we build in class this week"
-            url: ca_upgma
-            minutes: 84
+            text: "Code along video: Trees Part 1, to replay what we build in class"
+            url: "https://www.youtube.com/watch?v=VtINhBpsTEY&t=407s"
+            minutes: 142
       - date: 2026-10-22
         kind: lecture
         title: "Trees II"
         detail: "We finish the UPGMA engine and visualize trees built from real data."
         prepare:
           - kind: after
-            text: "Recursion and Completing UPGMA covers the remaining details, including Newick format"
-            url: ca_recursion
-            minutes: 123
+            text: "Code along video: Trees Part 2, to replay what we build in class"
+            url: "https://www.youtube.com/watch?v=tkrTKXgQi38&t=311s"
+            minutes: 135
       - date: 2026-10-23
         kind: recitation
         title: "Recitation 6: Binary search trees"

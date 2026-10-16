@@ -1,29 +1,55 @@
-We compiled complete human mitochondrial genomes for 13 representatives of major haplogroups 
-from NCBI, then extracted HVR1 (Hypervariable Region 1, positions 16024-16569 of the rCRS, ~546 nt).
+We compiled complete human mitochondrial genomes for 25 representatives of major haplogroups
+from NCBI GenBank (see build_mtdna.py in the repository root for accession numbers and methods).
 
-Human mitochondrial DNA is inherited maternally without recombination, so mutations accumulate 
-along strictly maternal lineages — making phylogenetic trees trace human migration out of Africa. 
-The tree rooted at haplogroup L0 (San Bushmen of southern Africa, ~200,000 years ago) and L1 is 
-the oldest split in the human mtDNA tree. Haplogroup L3, originating in East Africa ~70,000 years 
-ago, is the ancestor of every non-African haplogroup. From L3, two major branches emerged: 
-haplogroup M (dominant in South and East Asia) and haplogroup N (Eurasian). The European 
-haplogroups H, J, and T all derive from N, with H being the most common (~44% of Europeans). 
-Haplogroups A and B (from N) and C and D (from M) are among the five founding haplogroups of 
-Indigenous Americans, reflecting the peopling of the New World via Beringia ~15,000-20,000 years ago.
+Sequences cover the mitochondrial coding region: positions 648-15,871 of the rCRS (NC_012920.1),
+a 15,224 bp window that includes the 12S rRNA, 16S rRNA, and all protein-coding genes, but
+excludes the D-loop (control region) where the HVR1 and HVR2 hypervariable segments lie.
 
-Haplogroup assignments:
-- L0: San/KhoeSan (South Africa) — deepest branch, ~200 kya
-- L1: Yoruba (West Africa)
-- L3: Ethiopian — ancestor of M and N clades
-- M: Indian — founding Asian haplogroup
-- C: Evenki (Siberia) — markers C16223T, T16298C, C16327T
-- D: Japanese — markers C16223T, T16362C (East Asian)
-- N: Bedouin — Eurasian ancestor
-- R: Czech — major Eurasian subgroup of N
-- H: rCRS reference — most common European haplogroup (~44%)
-- J: German — markers C16069T, T16126C (~7% European)
-- T: Georgian — markers T16126C, C16294T (~10% European)
-- A: Ojibwe (Native American) — founding Americas haplogroup
-- B: Polynesian — found in Pacific and Native Americas
+Each sequence was globally aligned to the rCRS coding window using BioPython PairwiseAligner,
+and reference-coordinate extraction was used so that all sequences are in the same 15,224-column
+reference frame (deletions relative to rCRS become 'N'; insertions are discarded).
 
-Pairwise distances are Levenshtein (edit) distances between HVR1 nucleotide sequences (~540-546 nt).
+Pairwise distances are Jukes-Cantor (JC) corrected distances computed on aligned columns where
+both sequences have unambiguous ACGT bases. JC formula: d = -3/4 * ln(1 - 4p/3), where p is
+the fraction of differing sites. JC is appropriate for UPGMA because it corrects for multiple
+substitutions at the same site (multiple hits), consistent with the molecular-clock assumption.
+
+Human mitochondrial DNA is inherited maternally without recombination, so mutations accumulate
+along strictly maternal lineages — making phylogenetic trees trace human migration out of Africa.
+The tree rooted at haplogroup L0 (San Bushmen of southern Africa, ~200,000 years ago) is
+the oldest branch. Haplogroup L3, originating in East Africa ~70,000 years ago, is the ancestor
+of every non-African haplogroup. From L3, two major branches emerged: macrohaplogroup M
+(spread east through South and Southeast Asia into the Pacific) and macrohaplogroup N (spread
+west and north through Eurasia and the Americas). Macrohaplogroup R, a major branch of N,
+gave rise to most European and West Eurasian haplogroups including H, J, K, T, U, and V.
+
+Haplogroup assignments (25 taxa):
+
+African L haplogroups (deepest branches):
+- L0, L0c: San/KhoeSan (South Africa) — deepest branch, ~200 kya
+- L1, L1c: Yoruba/Biaka (West/Central Africa)
+- L2a, L2b: Melanesia/Central Africa — mid-African branch
+- L3, L3b: Ethiopian/Yoruba — ancestor of all non-African haplogroups (~70 kya)
+
+Macrohaplogroup M (spread east from East Africa):
+- M:   Indian (South Asia) — founding Asian haplogroup
+- D:   Japanese (East Asia)
+- C:   Evenki (Siberia) — also founding Americas haplogroup
+- G:   Nivkh (Russia/Sakhalin) — Siberian/East Asian
+- F:   Vietnamese/Kinh (Southeast Asia)
+- E:   Papua New Guinea — Melanesian/Oceanian
+
+Macrohaplogroup N (spread west/north from East Africa):
+- N:   Bedouin (Middle East) — Eurasian ancestor
+- A:   Ojibwe (Native America) — founding Americas haplogroup (under N)
+- X:   Ojibwe (Native America) — rare Americas/Eurasian haplogroup (under N)
+
+Macrohaplogroup R (major branch of N):
+- R:   Armenia — basal R; ancestor of H, J, K, T, B, U, V
+- B:   Polynesian — found in Pacific and Native Americas
+- H:   Norse/Northern Europe — most common European haplogroup (~44%)
+- J:   Germany/Northern Europe — ~7% of Europeans
+- K:   Druze/Middle East
+- T:   Armenia/Near East — ~10% of Europeans
+- U:   Belarus — ancient West Eurasian; dominant in Mesolithic European hunter-gatherers
+- V:   Spain/Iberian — Western European

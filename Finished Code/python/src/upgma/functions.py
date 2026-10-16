@@ -16,46 +16,51 @@ def upgma(mtx: DistanceMatrix, species_names: list[str]) -> Tree:
         Tree: A list of `Node` objects representing the full UPGMA tree.
               Conventionally, the last node (index -1) is the root.
     """
-    # let's call our assertions
     assert_square_matrix(mtx)
     assert_same_number_species(mtx, species_names)
 
+    # we now know that the matrix is square, and that the number of rows is equal to the number of species
     num_leaves = len(mtx)
 
-    # initialize the tree by creating nodes and assigning species names to the leaves
+    # make a tree containing 2n-1 total nodes, where the leaves are going to get labeled with species names
     t = initialize_tree(species_names)
 
     # clusters refer to the first num_leaves nodes in tree
     clusters = t[:num_leaves]  # is this OK? Should this make *new* nodes? No! It makes copies of the keys to the locker that contains the leaves
 
-    # range over all the internal nodes, and iterate one step of UPGMA algorithm 
+    # perform the engine of UPGMA with n-1 total steps
+    # range over all the internal nodes and perform 1 step
     for p in range(num_leaves, 2*num_leaves-1):
-        # working with t[p]
-
-        # find min element
+        # find minimum element of matrix
         row, col, min_val = find_min_element(mtx)
 
-        # set the age of t[p]
+        # set the age of current node (t[p])
         t[p].age = min_val/2.0
 
-        # set its children 
-        t[p].child1 = clusters[row]
+        # connect current node into its children
+        t[p].child1 = clusters[row]  # this means update child 1 of current node to be the reference to the node in clusters[row] ... NOT "make a new node"
         t[p].child2 = clusters[col]
 
-        cluster_size_1 = t[p].child1.count_leaves()  # or clusters[row]
-        cluster_size_2 = t[p].child2.count_leaves()  # or clusters[col]
+        # add a row and column to the matrix
 
-        # update the distance matrix 
+        cluster_size_1 = t[p].child1.count_leaves()
+        cluster_size_2 = t[p].child2.count_leaves()
+
         mtx = add_row_col(row, col, cluster_size_1, cluster_size_2, mtx)
+
+        # delete the old rows/columns that are no longer needed
 
         mtx = delete_row_col(mtx, row, col)
 
-        # update the clusters
+        # create a new cluster referring to the new node
         clusters.append(t[p])
+
+        # delete the two clusters that we joined together
         clusters = delete_clusters(clusters, row, col)
 
-
+    # return the tree
     return t
+
 
 def assert_square_matrix(mtx: DistanceMatrix) -> None:
     """
@@ -65,18 +70,18 @@ def assert_square_matrix(mtx: DistanceMatrix) -> None:
         mtx (DistanceMatrix): The matrix to validate.
 
     Raises:
-        ValueError: If the matrix is not square.
+        ValueError: If the matrix is empty or not square.
     """
     num_rows = len(mtx)
-
     if num_rows == 0:
-        raise ValueError("Error: empty matrix.")
-
-    for r in range(num_rows):
-        if len(mtx[r]) != num_rows:
-            raise ValueError("Error: matrix not square.")
-
-    # there are lots of other things we could check about the matrix: all values non-negative, main diagonal zero, matrix symmetric, etc.
+        raise ValueError("Empty matrix given.")
+    
+    # idea: range over all rows, and each row should have length == num_rows
+    for i in range(num_rows):
+        if len(mtx[i]) != num_rows:
+            raise ValueError("Error: non-square matrix given.")
+        
+    # if we make it here, we know the matrix is square.
 
 
 def assert_same_number_species(mtx: DistanceMatrix, species_names: list[str]) -> None:
@@ -90,96 +95,86 @@ def assert_same_number_species(mtx: DistanceMatrix, species_names: list[str]) ->
     Raises:
         ValueError: If their sizes do not match.
     """
-    if len(species_names) != len(mtx):
-        raise ValueError("Error: mismatched number of species and matrix rows.")
+    if len(mtx) != len(species_names):
+        raise ValueError("Error: number of rows in matrix not equal to # species.")
 
 
 def add_row_col(row: int, col: int, cluster_size1: int, cluster_size2: int, mtx: DistanceMatrix) -> DistanceMatrix:
     """
-    Add a new cluster (row/column) to the matrix via size-weighted averaging.
+    Append a new row and column for the merged cluster.
 
-    Computes distances from the new merged cluster to each existing cluster
-    using a weighted average by cluster sizes, then appends this as a new
-    row/column at the end of the matrix.
+    Uses the idea that if we merge clusters with sizes s1, s2 corresponding to indices row/col of the matrix, then the distance from new cluster to cluster k is
+
+    (s1 * D(k, row) + s2*D(k, col))/(s1 + s2)
 
     Args:
-        row (int): Index of the first merged cluster (row < col).
-        col (int): Index of the second merged cluster.
-        cluster_size1 (int): Number of leaves in the first cluster.
-        cluster_size2 (int): Number of leaves in the second cluster.
+        row (int): Index of the first cluster to merge (row < col).
+        col (int): Index of the second cluster to merge.
+        cluster_size1 (int): Leaf count of the first cluster.
+        cluster_size2 (int): Leaf count of the second cluster.
         mtx (DistanceMatrix): The current distance matrix.
 
     Returns:
-        DistanceMatrix: The matrix with the new cluster appended as the last row/column.
+        DistanceMatrix: The matrix with one new row and column added.
     """
-    # create my new row that we will eventually add to the matrix 
     num_rows = len(mtx)
-    new_row = [0.0] * (num_rows + 1)
 
-    # set values of the new row 
-    for r in range(len(new_row)-1):  # this is num_rows also 
-        # set values that are not indices row and col
+    # idea: make a new row and then I'll fill in the other values
+    new_row = [0.0]*(num_rows+1)  #we'll worry about the extra column values later
+    for r in range(len(new_row)-1):
+        # I don't need to set new_row[row] or new_row[col]
         if r != row and r != col:
-            # this is WPGMA (w = weighted)
             new_row[r] = (cluster_size1 * mtx[r][row] + cluster_size2 * mtx[r][col])/(cluster_size1 + cluster_size2)
-
-    # append new row we created to mtx 
+    
+    # do two things: append this row to matrix and add the extra values with symmetry
     mtx.append(new_row)
 
-    # range over rows, and append new_row[r] to row r 
-    for r in range(len(new_row)-1):
+    # now set the missing values due to symmetry (don't need to set bottom right)
+    for r in range(num_rows):  # num_rows = original n
         mtx[r].append(new_row[r])
 
     return mtx
 
+
 def delete_clusters(clusters: list[Node], row: int, col: int) -> list[Node]:
     """
-    Remove two cluster representatives at indices `row` and `col`.
-
-    This is used after we merge those two clusters into a new one.
+    Remove two merged clusters from the cluster list.
 
     Args:
-        clusters (list[Node]): Active cluster representatives.
-        row (int): Index of the first cluster (row < col).
-        col (int): Index of the second cluster.
+        clusters (list[Node]): The active cluster list.
+        row (int): Index of the first cluster to remove (row < col).
+        col (int): Index of the second cluster to remove.
 
     Returns:
-        list[Node]: Updated list of cluster representatives with the two removed.
+        list[Node]: The updated cluster list.
     """
-    # thank you python for having a built-in delete function 
-
-    # no
-    # del clusters[row]
-    # del clusters[col]
-
-    # when deleting multiple elements of a list, start with the one that occurs last and move back to front 
     del clusters[col]
     del clusters[row]
+    # always delete the element with higher index first!
 
     return clusters
 
 
 def delete_row_col(mtx: DistanceMatrix, row: int, col: int) -> DistanceMatrix:
     """
-    Delete two rows and two columns (row/col) from the matrix.
-
-    This is used after appending the new merged cluster at the end.
+    Remove two rows and columns from the distance matrix.
 
     Args:
-        mtx (DistanceMatrix): The distance matrix.
-        row (int): The first row/column index to delete (row < col).
-        col (int): The second row/column index to delete.
+        mtx (DistanceMatrix): The current distance matrix.
+        row (int): Row/column index of the first cluster (row < col).
+        col (int): Row/column index of the second cluster.
 
     Returns:
-        DistanceMatrix: The matrix with the specified rows/columns removed.
+        DistanceMatrix: The matrix with two rows and columns removed.
     """
-    # first, delete rows
-    # we also want to delete later rows first
+    # remember: col > row
+
+    # first, delete 2 rows
     del mtx[col]
     del mtx[row]
 
-    num_rows = len(mtx) 
-    # next, delete columns
+    # then, n-2 rows left; range over all of these rows and remove the elements at indices row and col (col first)
+    num_rows = len(mtx)   # now n -2
     for r in range(num_rows):
         del mtx[r][col]
         del mtx[r][row]
@@ -187,63 +182,61 @@ def delete_row_col(mtx: DistanceMatrix, row: int, col: int) -> DistanceMatrix:
     return mtx
 
 
-
 def find_min_element(mtx: DistanceMatrix) -> tuple[int, int, float]:
     """
-    Find the indices (i, j) of the smallest strictly upper-triangular entry.
+    Scan the upper triangle of mtx for the minimum value.
 
     Args:
-        mtx (DistanceMatrix): A square matrix with size >= 2.
+        mtx (DistanceMatrix): A square distance matrix (at least 2x2).
 
     Returns:
-        tuple[int, int, float]: (row_index, col_index, min_value) with col_index > row_index.
+        tuple[int, int, float]: (row, col, min_val) where row < col.
 
     Raises:
-        ValueError: If the matrix is smaller than 2x2.
+        ValueError: If the matrix has only one row or column.
     """
-    # range over values of the matrix and find the minimum 
-    # let's start at (0, 1)
-    if len(mtx) <= 1 or len(mtx[0]) <= 1:
-        raise ValueError("Matrix has only one row or column.")
-    row = 0 
-    col = 1 
+    if len(mtx) <= 1 or len(mtx[0]) == 1:
+        raise ValueError("Matrix isn't large enough.")
+    
+    row = 0
+    col = 1
     min_val = mtx[row][col]
 
-    # range over matrix values, finding the minimum 
-    for i in range(len(mtx)-1):
-        for j in range(i+1, len(mtx[i])):
-                if mtx[i][j] < min_val:
-                    row, col, min_val = i, j, mtx[i][j]
+    # range over values of the matrix, and any time I find a smaller value, I update these values 
+    for r in range(len(mtx)-1):
+        for c in range(r+1, len(mtx[r])):
+            if mtx[r][c] < min_val:
+                row, col, min_val = r, c, mtx[r][c]
 
-    # nice exercise: write a function that asserts that mtx is a distance matrix (non-negative values, symmetric across main diagonal, satisfies the triangle inequality)
+    # nice exercise: write a function that asserts that mtx is a distance matrix (non-negative values, symmetric across main diagonal, have the triangle ineq.)
 
     return row, col, min_val
 
 
-
 def initialize_tree(species_names: list[str]) -> Tree:
     """
-    Initialize a tree container for UPGMA with labeled leaves and internal nodes.
-
-    Creates a list of 2n - 1 nodes:
-      - The first n nodes (0..n-1) are leaves labeled by species_names.
-      - The remaining n - 1 nodes (n..2n-2) are internal nodes labeled as ancestors.
+    Allocate all 2n - 1 nodes for a tree with n leaves.
 
     Args:
-        species_names (list[str]): Species labels.
+        species_names (list[str]): Names for the n leaf nodes.
 
     Returns:
-        Tree: The preallocated list of `Node` objects used by UPGMA.
+        Tree: A Tree of labeled leaves followed by labeled internal nodes.
     """
     num_leaves = len(species_names)
 
     t: Tree = []
 
-    for i in range(2 * num_leaves - 1):
+    # let's give the tree 2*n-1 total nodes
+    for i in range(2*num_leaves - 1):
+        new_node = Node()  # default age = 0
+        t.append(new_node)
+
+        # we give it a label too 
         if i < num_leaves:
-            t.append(Node(label=species_names[i]))
+            t[i].label = species_names[i]
         else:
-            t.append(Node(label=f"Ancestor Species: {i}"))
+            # internal node, so we're just going to label it with i
+            t[i].label = f"Ancestor Species: {i}"
 
     return t
-
