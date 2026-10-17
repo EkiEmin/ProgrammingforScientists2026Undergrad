@@ -602,7 +602,7 @@ weeks:
         kind: no-class
         title: "No recitation: AI4Bio symposium"
 
-  - title: "Assembly Language and Theory"
+  - title: "Assembly Language: Loops, Functions, and GCD"
     label: "Week 11"
     start: 2026-11-16
     end: 2026-11-20
@@ -614,16 +614,17 @@ weeks:
       - date: 2026-11-17
         kind: lecture
         title: "Assembly II"
-        detail: "Bitwise operations, negative numbers, and branching in X-Toy."
+        detail: "Bitwise operations, branching, and our first loops and functions in X-Toy."
         prepare:
+          - kind: required
+            text: "Code along 7.5: Negative Numbers and Two's Complement"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/negative-numbers-and-twos-complement-in-x-toy/"
+            minutes: 13
+            note: "Short and self-contained: how a computer stores negative numbers."
           - kind: after
             text: "Code along 7.4: Bitwise Operations in X-Toy"
             url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/bitwise-operations-in-x-toy/"
             minutes: 20
-          - kind: after
-            text: "Code along 7.5: Negative Numbers and Two's Complement"
-            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/negative-numbers-and-twos-complement-in-x-toy/"
-            minutes: 13
           - kind: after
             text: "Code along 7.6: Indirect Memory, Branching, and If/Else"
             url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/indirect-memory-branching-and-if-else-in-x-toy/"
@@ -635,9 +636,22 @@ weeks:
             note: "Needed for HW7."
       - date: 2026-11-19
         kind: lecture
-        title: "Theory I"
-        detail: "Turing machines and the halting problem."
+        title: "Assembly III"
+        detail: "Subroutines in X-Toy: computing a GCD the slow way, then Euclid's beautiful speedup."
         prepare:
+          - kind: required
+            text: "Have your multiplication function from code along 7.7 running in Visual X-TOY; today's GCD functions call subroutines the same way"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/loops-and-functions-in-x-toy/"
+          - kind: after
+            text: "Code along 7.8: Trivial GCD in X-Toy"
+            minutes: 36
+          - kind: after
+            text: "Code along 7.9: Subroutines for Trivial GCD"
+            minutes: 32
+            note: "Needed for HW7."
+          - kind: after
+            text: "Code along 7.10: Euclid's GCD in X-Toy"
+            minutes: 18
       - date: 2026-11-20
         kind: recitation
         title: "Recitation 8: Depth-first search and hard problems"
@@ -646,7 +660,7 @@ weeks:
           - text: "First version of your project app live on the web"
             url: "project/Project_Description_F26.pdf"
 
-  - title: "Theory 2 and Thanksgiving"
+  - title: "The Limits of the Machine, and Thanksgiving"
     label: "Week 12"
     start: 2026-11-23
     end: 2026-11-27
@@ -654,8 +668,16 @@ weeks:
     days:
       - date: 2026-11-24
         kind: lecture
-        title: "Theory II"
-        detail: "P versus NP."
+        title: "Assembly IV: The limits of the machine"
+        detail: "Turing machines, the halting problem, and P versus NP: what no computer can do, and what no computer may ever do quickly."
+        prepare:
+          - kind: required
+            text: "Code along 7.11: The Limits of the Machine: Self-Reference and Programs That Rewrite Themselves"
+            minutes: 27
+            note: "Paradoxes, Escher, and quines: more ideas than code."
+          - kind: after
+            text: "Code along 7.12: Turing Machines and the Halting Problem"
+            minutes: 31
       - date: 2026-11-26
         kind: no-class
         title: "Thanksgiving, no class and no recitation"
