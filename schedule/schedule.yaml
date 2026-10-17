@@ -398,9 +398,19 @@ weeks:
             text: "Read the Chapter 5 core text"
             url: ch5_text
           - kind: required
-            text: "Code along video: Methods and Trees (start at 7:14 and code along in a copy of Starter Code/shapes_methods)"
-            url: "https://www.youtube.com/watch?v=Fiy8fIB5T8Q&t=434s"
-            minutes: 107
+            text: "Code along 5.1: Methods on Shapes"
+            url: "https://www.youtube.com/watch?v=Fiy8fIB5T8Q&t=950s"
+            minutes: 39
+            note: "Code along in a copy of Starter Code/shapes_methods."
+          - kind: required
+            text: "Code along 5.2: Everything Is an Object"
+            url: "https://www.youtube.com/watch?v=Fiy8fIB5T8Q&t=3280s"
+            minutes: 23
+          - kind: required
+            text: "Code along 5.3: Designing Data for Trees"
+            url: "https://www.youtube.com/watch?v=Fiy8fIB5T8Q&t=4660s"
+            minutes: 37
+            note: "Code alongs 5.1 to 5.3 are one continuous video; stop at 1:54:28."
           - kind: required
             text: "Pull the course repository and copy Starter Code/upgma into python/src/; we build from it in class"
             url: "https://github.com/phcompeau/ProgrammingforScientists2026Undergrad"
@@ -409,18 +419,46 @@ weeks:
             url: "https://cran.r-project.org/"
             note: "Install R first from CRAN, then RStudio Desktop from https://posit.co/download/rstudio-desktop/. Then open RStudio and run install.packages(c(\"ape\", \"rstudioapi\")) in its console."
           - kind: after
-            text: "Code along video: Trees Part 1, to replay what we build in class"
-            url: "https://www.youtube.com/watch?v=VtINhBpsTEY&t=407s"
-            minutes: 142
+            text: "Code along 5.4: How UPGMA Works"
+            url: "https://www.youtube.com/watch?v=VtINhBpsTEY&t=1235s"
+            minutes: 25
+          - kind: after
+            text: "Code along 5.5: Planning UPGMA Top-Down"
+            url: "https://www.youtube.com/watch?v=VtINhBpsTEY&t=2735s"
+            minutes: 44
+          - kind: after
+            text: "Code along 5.6: Validating Input, Initializing the Tree, and What Slices Copy"
+            url: "https://www.youtube.com/watch?v=VtINhBpsTEY&t=5345s"
+            minutes: 25
+          - kind: after
+            text: "Code along 5.7: Shrinking the Matrix and Clusters"
+            url: "https://www.youtube.com/watch?v=VtINhBpsTEY&t=6840s"
+            minutes: 35
       - date: 2026-10-22
         kind: lecture
         title: "Trees II"
         detail: "We finish the UPGMA engine and visualize trees built from real data."
         prepare:
           - kind: after
-            text: "Code along video: Trees Part 2, to replay what we build in class"
-            url: "https://www.youtube.com/watch?v=tkrTKXgQi38&t=311s"
-            minutes: 135
+            text: "Code along 5.8: An Introduction to Recursion"
+            url: "https://www.youtube.com/watch?v=tkrTKXgQi38&t=1026s"
+            minutes: 25
+          - kind: after
+            text: "Code along 5.9: Counting Leaves Recursively"
+            url: "https://www.youtube.com/watch?v=tkrTKXgQi38&t=2546s"
+            minutes: 26
+          - kind: after
+            text: "Code along 5.10: Newick Format"
+            url: "https://www.youtube.com/watch?v=tkrTKXgQi38&t=4114s"
+            minutes: 26
+          - kind: after
+            text: "Code along 5.11: Running UPGMA on Real Data"
+            url: "https://www.youtube.com/watch?v=tkrTKXgQi38&t=5652s"
+            minutes: 18
+          - kind: after
+            text: "Code along 5.12: Touring Our Evolutionary Trees"
+            url: "https://www.youtube.com/watch?v=tkrTKXgQi38&t=6732s"
+            minutes: 27
       - date: 2026-10-23
         kind: recitation
         title: "Recitation 6: Binary search trees"
@@ -472,10 +510,18 @@ weeks:
         detail: "Summing a list in parallel and timing the speedup."
         prepare:
           - kind: required
-            text: "Read the assigned introduction to parallelism versus concurrency"
+            text: "Code along 6.1: Parallelism vs. Concurrency"
+            url: "https://www.youtube.com/watch?v=Yaj4dSB1Jro&t=626s"
+            minutes: 15
           - kind: required
-            text: "Watch Parallel Programming Part 1 on YouTube"
-            minutes: 104
+            text: "Code along 6.2: Summing a List Across Processes"
+            url: "https://www.youtube.com/watch?v=Yaj4dSB1Jro&t=1539s"
+            minutes: 40
+            note: "Code along in a copy of Starter Code/parallel."
+          - kind: after
+            text: "Code along 6.3: Any Number of Processes, and Timing the Speedup"
+            url: "https://www.youtube.com/watch?v=Yaj4dSB1Jro&t=3911s"
+            minutes: 37
       - date: 2026-11-06
         kind: recitation
         title: "Recitation 7: Stacks and queues"
@@ -491,16 +537,43 @@ weeks:
         kind: lecture
         title: "Parallel II"
         detail: "Parallel craps and a parallel reaction-diffusion simulator."
+        prepare:
+          - kind: after
+            text: "Code along 6.4: Parallel Craps"
+            url: "https://www.youtube.com/watch?v=PTGBLAptguQ&t=1307s"
+            minutes: 41
+          - kind: after
+            text: "Code along 6.5: A Serial Diffusion Simulator"
+            url: "https://www.youtube.com/watch?v=PTGBLAptguQ&t=3788s"
+            minutes: 19
+          - kind: after
+            text: "Code along 6.6: Parallel Diffusion with Pool and starmap"
+            url: "https://www.youtube.com/watch?v=PTGBLAptguQ&t=4945s"
+            minutes: 49
+          - kind: reference
+            text: "Code along 6.7: Reaction-Diffusion: the Serial Engine"
+            url: "https://www.youtube.com/watch?v=SrAuh5dJ1_Q&t=1420s"
+            minutes: 68
+          - kind: reference
+            text: "Code along 6.8: Parallel Reaction-Diffusion with Halos"
+            url: "https://www.youtube.com/watch?v=SrAuh5dJ1_Q&t=5579s"
+            minutes: 57
+          - kind: reference
+            text: "Code along 6.9: A Tour of Reaction Systems"
+            url: "https://www.youtube.com/watch?v=SrAuh5dJ1_Q&t=9009s"
+            minutes: 36
       - date: 2026-11-12
         kind: lecture
         title: "Assembly I"
         prepare:
-          - kind: reference
-            text: "Parallel Programming Part 2 is on YouTube as a companion"
-            minutes: 134
-          - kind: reference
-            text: "The reaction-diffusion build is on YouTube as a companion"
-            minutes: 188
+          - kind: required
+            text: "Code along 7.1: Binary and Hexadecimal"
+            url: "https://www.youtube.com/watch?v=mhHNKgowDcc&t=942s"
+            minutes: 56
+          - kind: after
+            text: "Code along 7.2: Meet X-Toy"
+            url: "https://www.youtube.com/watch?v=mhHNKgowDcc&t=4324s"
+            minutes: 38
       - date: 2026-11-13
         kind: no-class
         title: "No recitation: AI4Bio symposium"
@@ -518,19 +591,29 @@ weeks:
         kind: lecture
         title: "Assembly II"
         prepare:
-          - kind: required
-            text: "Read the assigned introduction to memory management and binary"
+          - kind: after
+            text: "Code along 7.3: Bitwise Operations: AND, OR, XOR, Shifts, and Masks"
+            url: "https://www.youtube.com/watch?v=LpJ5eyLXTvk&t=1558s"
+            minutes: 20
+          - kind: after
+            text: "Code along 7.4: Negative Numbers and Two's Complement"
+            url: "https://www.youtube.com/watch?v=LpJ5eyLXTvk&t=2766s"
+            minutes: 13
+          - kind: after
+            text: "Code along 7.5: Indirect Memory, Branching, and If/Else"
+            url: "https://www.youtube.com/watch?v=LpJ5eyLXTvk&t=3936s"
+            minutes: 15
+          - kind: after
+            text: "Code along 7.6: Loops and Functions in X-Toy: Multiplication"
+            url: "https://www.youtube.com/watch?v=LpJ5eyLXTvk&t=4815s"
+            minutes: 30
       - date: 2026-11-19
         kind: lecture
         title: "Theory I"
         detail: "Turing machines and the halting problem."
         prepare:
           - kind: reference
-            text: "Assembly Language Part 1 is on YouTube for review and for HW7"
-            minutes: 114
-          - kind: reference
-            text: "Assembly Language Part 2 is on YouTube for review and for HW7"
-            minutes: 120
+            text: "Code alongs 7.1 to 7.6 (listed under Assembly I and II) cover everything HW7 needs"
       - date: 2026-11-20
         kind: recitation
         title: "Recitation 8: Depth-first search and hard problems"
