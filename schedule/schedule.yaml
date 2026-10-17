@@ -470,7 +470,7 @@ weeks:
     label: "Week 8"
     start: 2026-10-26
     end: 2026-10-30
-    note: "No new code alongs this week."
+    note: "Midterm 1 is Tuesday. Chapter 6 starts Thursday, with nothing to prepare."
     days:
       - date: 2026-10-27
         kind: exam
@@ -478,8 +478,17 @@ weeks:
         detail: "Monte Carlo and PRNGs, cellular automata, top-down design, OOP."
       - date: 2026-10-29
         kind: lecture
-        title: "To be announced"
-        tbd: true
+        title: "Parallel I"
+        detail: "Why parallelism, and our first parallel program. Nothing to prepare: we build it together the class after the exam."
+        prepare:
+          - kind: after
+            text: "Code along 6.1: Parallelism vs. Concurrency"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallelism-vs-concurrency/"
+            minutes: 15
+          - kind: after
+            text: "Code along 6.2: Summing a List Across Processes"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/summing-a-list-across-processes-in-python/"
+            minutes: 40
       - date: 2026-10-30
         kind: no-class
         title: "No recitation: optional Midterm 1 debrief and project office hours"
@@ -490,7 +499,7 @@ weeks:
           - text: "Revised project proposal due (only if we asked for one)"
             url: "project/Project_Description_F26.pdf"
 
-  - title: "Parallel programming 1"
+  - title: "Simulating Chemical Reactions with Parallel Programming"
     label: "Week 9"
     start: 2026-11-02
     end: 2026-11-06
@@ -505,28 +514,28 @@ weeks:
         title: "Election Day, no class"
       - date: 2026-11-05
         kind: lecture
-        title: "Parallel I"
-        detail: "Summing a list in parallel and timing the speedup."
+        title: "Parallel II"
+        detail: "Parallel Monte Carlo: speeding up craps, then a serial diffusion simulator to parallelize next time."
         prepare:
           - kind: required
-            text: "Code along 6.1: Parallelism vs. Concurrency"
-            url: "https://www.youtube.com/watch?v=Yaj4dSB1Jro&t=626s"
-            minutes: 15
-          - kind: required
-            text: "Code along 6.2: Summing a List Across Processes"
-            url: "https://www.youtube.com/watch?v=Yaj4dSB1Jro&t=1539s"
-            minutes: 40
-            note: "Code along in a copy of Starter Code/parallel."
-          - kind: after
-            text: "Code along 6.3: Any Number of Processes, and Timing the Speedup"
-            url: "https://www.youtube.com/watch?v=Yaj4dSB1Jro&t=3911s"
+            text: "Code along 6.3: Any Number of Processes and Timing the Speedup"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/any-number-of-processes-and-timing-the-speedup-in-python/"
             minutes: 37
+            note: "Generalizes Thursday's parallel sum to any number of processes; we build on it in class."
+          - kind: after
+            text: "Code along 6.4: Parallel Craps"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallel-craps-in-python/"
+            minutes: 41
+          - kind: after
+            text: "Code along 6.5: A Serial Diffusion Simulator"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/a-serial-diffusion-simulator-in-python/"
+            minutes: 19
       - date: 2026-11-06
         kind: recitation
         title: "Recitation 7: Stacks and queues"
         detail: "The call stack and the work queue, built from a linked list; validating RNA structures and Newick trees."
 
-  - title: "Parallel programming 2 and assembly 1"
+  - title: "Reaction-Diffusion and the Dark Heart of Computer Science"
     label: "Week 10"
     start: 2026-11-09
     end: 2026-11-13
@@ -534,50 +543,59 @@ weeks:
     days:
       - date: 2026-11-10
         kind: lecture
-        title: "Parallel II"
-        detail: "Parallel craps and a parallel reaction-diffusion simulator."
+        title: "Parallel III"
+        detail: "Reaction-diffusion, the point of the chapter: we build the serial engine and then watch the parallel version run."
         prepare:
-          - kind: after
-            text: "Code along 6.4: Parallel Craps"
-            url: "https://www.youtube.com/watch?v=PTGBLAptguQ&t=1307s"
-            minutes: 41
-          - kind: after
-            text: "Code along 6.5: A Serial Diffusion Simulator"
-            url: "https://www.youtube.com/watch?v=PTGBLAptguQ&t=3788s"
-            minutes: 19
-          - kind: after
+          - kind: required
             text: "Code along 6.6: Parallel Diffusion with Pool and starmap"
-            url: "https://www.youtube.com/watch?v=PTGBLAptguQ&t=4945s"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallel-diffusion-with-pool-and-starmap-in-python/"
             minutes: 49
+            note: "Download diffusion-python.zip from code along 6.5 first."
+          - kind: after
+            text: "Code along 6.7: Reaction-Diffusion: Designing the Serial Engine"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/reaction-diffusion-designing-the-serial-engine-in-python/"
+            minutes: 34
+          - kind: after
+            text: "Code along 6.8: Reaction-Diffusion: Applying Reactions"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/reaction-diffusion-applying-reactions-in-python/"
+            minutes: 34
           - kind: reference
-            text: "Code along 6.7: Reaction-Diffusion: the Serial Engine"
-            url: "https://www.youtube.com/watch?v=SrAuh5dJ1_Q&t=1420s"
-            minutes: 68
+            text: "Code along 6.9: Parallel Reaction-Diffusion: Strips and Halos"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallel-reaction-diffusion-strips-and-halos-in-python/"
+            minutes: 29
           - kind: reference
-            text: "Code along 6.8: Parallel Reaction-Diffusion with Halos"
-            url: "https://www.youtube.com/watch?v=SrAuh5dJ1_Q&t=5579s"
-            minutes: 57
+            text: "Code along 6.10: Parallel Reaction-Diffusion: Processing Strips"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallel-reaction-diffusion-processing-strips-in-python/"
+            minutes: 28
           - kind: reference
-            text: "Code along 6.9: A Tour of Reaction Systems"
-            url: "https://www.youtube.com/watch?v=SrAuh5dJ1_Q&t=9009s"
+            text: "Code along 6.11: A Tour of Reaction Systems"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/a-tour-of-reaction-systems/"
             minutes: 36
       - date: 2026-11-12
         kind: lecture
         title: "Assembly I"
+        detail: "Hexadecimal, and meeting X-Toy, a virtual computer."
         prepare:
           - kind: required
-            text: "Code along 7.1: Binary and Hexadecimal"
-            url: "https://www.youtube.com/watch?v=mhHNKgowDcc&t=942s"
-            minutes: 56
+            text: "Code along 7.1: The CPU, Memory, and Binary"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/the-cpu-memory-and-binary/"
+            minutes: 29
+          - kind: required
+            text: "Install Visual X-TOY"
+            url: "https://lift.cs.princeton.edu/xtoy/"
           - kind: after
-            text: "Code along 7.2: Meet X-Toy"
-            url: "https://www.youtube.com/watch?v=mhHNKgowDcc&t=4324s"
+            text: "Code along 7.2: Hexadecimal: A Shorthand for Binary"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/hexadecimal-a-shorthand-for-binary/"
+            minutes: 27
+          - kind: after
+            text: "Code along 7.3: Meet X-Toy, a Virtual Computer"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/meet-x-toy/"
             minutes: 38
       - date: 2026-11-13
         kind: no-class
         title: "No recitation: AI4Bio symposium"
 
-  - title: "Assembly 2 and theory 1"
+  - title: "Assembly Language and Theory"
     label: "Week 11"
     start: 2026-11-16
     end: 2026-11-20
@@ -589,30 +607,30 @@ weeks:
       - date: 2026-11-17
         kind: lecture
         title: "Assembly II"
+        detail: "Bitwise operations, negative numbers, and branching in X-Toy."
         prepare:
           - kind: after
-            text: "Code along 7.3: Bitwise Operations: AND, OR, XOR, Shifts, and Masks"
-            url: "https://www.youtube.com/watch?v=LpJ5eyLXTvk&t=1558s"
+            text: "Code along 7.4: Bitwise Operations in X-Toy"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/bitwise-operations-in-x-toy/"
             minutes: 20
           - kind: after
-            text: "Code along 7.4: Negative Numbers and Two's Complement"
-            url: "https://www.youtube.com/watch?v=LpJ5eyLXTvk&t=2766s"
+            text: "Code along 7.5: Negative Numbers and Two's Complement"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/negative-numbers-and-twos-complement-in-x-toy/"
             minutes: 13
           - kind: after
-            text: "Code along 7.5: Indirect Memory, Branching, and If/Else"
-            url: "https://www.youtube.com/watch?v=LpJ5eyLXTvk&t=3936s"
+            text: "Code along 7.6: Indirect Memory, Branching, and If/Else"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/indirect-memory-branching-and-if-else-in-x-toy/"
             minutes: 15
           - kind: after
-            text: "Code along 7.6: Loops and Functions in X-Toy: Multiplication"
-            url: "https://www.youtube.com/watch?v=LpJ5eyLXTvk&t=4815s"
-            minutes: 30
+            text: "Code along 7.7: Loops and Functions in X-Toy: Multiplication"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/loops-and-functions-in-x-toy/"
+            minutes: 34
+            note: "Needed for HW7."
       - date: 2026-11-19
         kind: lecture
         title: "Theory I"
         detail: "Turing machines and the halting problem."
         prepare:
-          - kind: reference
-            text: "Code alongs 7.1 to 7.6 (listed under Assembly I and II) cover everything HW7 needs"
       - date: 2026-11-20
         kind: recitation
         title: "Recitation 8: Depth-first search and hard problems"
