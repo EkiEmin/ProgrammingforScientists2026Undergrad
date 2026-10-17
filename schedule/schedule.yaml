@@ -399,18 +399,17 @@ weeks:
             url: ch5_text
           - kind: required
             text: "Code along 5.1: Methods on Shapes"
-            url: "https://www.youtube.com/watch?v=Fiy8fIB5T8Q&t=950s"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/methods-on-shapes-in-python/"
             minutes: 39
             note: "Code along in a copy of Starter Code/shapes_methods."
           - kind: required
             text: "Code along 5.2: Everything Is an Object"
-            url: "https://www.youtube.com/watch?v=Fiy8fIB5T8Q&t=3280s"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/everything-is-an-object-in-python/"
             minutes: 23
           - kind: required
             text: "Code along 5.3: Designing Data for Trees"
-            url: "https://www.youtube.com/watch?v=Fiy8fIB5T8Q&t=4660s"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/designing-data-for-trees-in-python/"
             minutes: 37
-            note: "Code alongs 5.1 to 5.3 are one continuous video; stop at 1:54:28."
           - kind: required
             text: "Pull the course repository and copy Starter Code/upgma into python/src/; we build from it in class"
             url: "https://github.com/phcompeau/ProgrammingforScientists2026Undergrad"
@@ -420,19 +419,19 @@ weeks:
             note: "Install R first from CRAN, then RStudio Desktop from https://posit.co/download/rstudio-desktop/. Then open RStudio and run install.packages(c(\"ape\", \"rstudioapi\")) in its console."
           - kind: after
             text: "Code along 5.4: How UPGMA Works"
-            url: "https://www.youtube.com/watch?v=VtINhBpsTEY&t=1235s"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/how-upgma-works/"
             minutes: 25
           - kind: after
             text: "Code along 5.5: Planning UPGMA Top-Down"
-            url: "https://www.youtube.com/watch?v=VtINhBpsTEY&t=2735s"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/planning-upgma-top-down-in-python/"
             minutes: 44
           - kind: after
             text: "Code along 5.6: Validating Input, Initializing the Tree, and What Slices Copy"
-            url: "https://www.youtube.com/watch?v=VtINhBpsTEY&t=5345s"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/validating-input-initializing-the-tree-and-what-slices-copy/"
             minutes: 25
           - kind: after
             text: "Code along 5.7: Shrinking the Matrix and Clusters"
-            url: "https://www.youtube.com/watch?v=VtINhBpsTEY&t=6840s"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/shrinking-the-matrix-and-clusters-in-python/"
             minutes: 35
       - date: 2026-10-22
         kind: lecture
@@ -441,23 +440,23 @@ weeks:
         prepare:
           - kind: after
             text: "Code along 5.8: An Introduction to Recursion"
-            url: "https://www.youtube.com/watch?v=tkrTKXgQi38&t=1026s"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/an-introduction-to-recursion-in-python/"
             minutes: 25
           - kind: after
             text: "Code along 5.9: Counting Leaves Recursively"
-            url: "https://www.youtube.com/watch?v=tkrTKXgQi38&t=2546s"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/counting-leaves-recursively-in-python/"
             minutes: 26
           - kind: after
             text: "Code along 5.10: Newick Format"
-            url: "https://www.youtube.com/watch?v=tkrTKXgQi38&t=4114s"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/newick-format-in-python/"
             minutes: 26
           - kind: after
             text: "Code along 5.11: Running UPGMA on Real Data"
-            url: "https://www.youtube.com/watch?v=tkrTKXgQi38&t=5652s"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/running-upgma-on-real-data-in-python/"
             minutes: 18
           - kind: after
             text: "Code along 5.12: Touring Our Evolutionary Trees"
-            url: "https://www.youtube.com/watch?v=tkrTKXgQi38&t=6732s"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/touring-our-evolutionary-trees/"
             minutes: 27
       - date: 2026-10-23
         kind: recitation
