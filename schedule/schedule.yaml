@@ -587,7 +587,7 @@ weeks:
             text: "Code along 7.1: The CPU, Memory, and Binary"
             url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/the-cpu-memory-and-binary/"
             minutes: 29
-            note: "7.1 and 7.2 are one continuous lesson on the math of binary and hexadecimal; watch them together."
+            note: "7.1 and 7.2 are one continuous lesson on the math of binary and hexadecimal, and the only prep for the rest of the course; Wednesday's daily challenge practices it. Every later code along we build together in class."
           - kind: required
             text: "Code along 7.2: Hexadecimal: A Shorthand for Binary"
             url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/hexadecimal-a-shorthand-for-binary/"
@@ -619,13 +619,12 @@ weeks:
       - date: 2026-11-17
         kind: lecture
         title: "Assembly II"
-        detail: "Branching, and our first loops and functions in X-Toy."
+        detail: "Negative numbers, branching, and our first loops and functions in X-Toy. Nothing new to prepare."
         prepare:
-          - kind: required
+          - kind: after
             text: "Code along 7.5: Negative Numbers and Two's Complement"
             url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/negative-numbers-and-twos-complement-in-x-toy/"
             minutes: 13
-            note: "Short and self-contained: how a computer stores negative numbers."
           - kind: after
             text: "Code along 7.6: Indirect Memory, Branching, and If/Else"
             url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/indirect-memory-branching-and-if-else-in-x-toy/"
@@ -638,11 +637,8 @@ weeks:
       - date: 2026-11-19
         kind: lecture
         title: "Assembly III"
-        detail: "Subroutines in X-Toy: computing a GCD the slow way."
+        detail: "Subroutines in X-Toy: computing a GCD the slow way. Nothing new to prepare."
         prepare:
-          - kind: required
-            text: "Have your multiplication function from code along 7.7 running in Visual X-TOY; today's GCD functions call subroutines the same way"
-            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/loops-and-functions-in-x-toy/"
           - kind: after
             text: "Code along 7.8: Trivial GCD in X-Toy"
             minutes: 36
@@ -667,15 +663,14 @@ weeks:
       - date: 2026-11-24
         kind: lecture
         title: "Assembly IV: The limits of the machine"
-        detail: "Euclid's beautiful speedup for GCD, then Turing machines and the halting problem: what no computer can ever do."
+        detail: "Euclid's beautiful speedup for GCD, paradoxes of self-reference, then Turing machines and the halting problem: what no computer can ever do. Nothing new to prepare."
         prepare:
-          - kind: required
-            text: "Code along 7.11: The Limits of the Machine: Self-Reference and Programs That Rewrite Themselves"
-            minutes: 27
-            note: "Paradoxes, Escher, and quines: more ideas than code."
           - kind: after
             text: "Code along 7.10: Euclid's GCD in X-Toy"
             minutes: 18
+          - kind: after
+            text: "Code along 7.11: The Limits of the Machine: Self-Reference and Programs That Rewrite Themselves"
+            minutes: 27
           - kind: after
             text: "Code along 7.12: Turing Machines and the Halting Problem"
             minutes: 31
