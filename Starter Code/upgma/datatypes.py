@@ -44,8 +44,21 @@ class Node:
         Returns:
             Newick string for this subtree (no trailing semicolon).
         """
-        #TODO: Implement
-        pass
+        if self.is_leaf():
+            return self.label
+
+        left = ""
+        right = ""
+
+        if self.child1 is not None:
+            branch_length1 = max(self.age - self.child1.age, 0.0)
+            left = f"{self.child1.to_newick_ages()}:{branch_length1:.6f}"
+
+        if self.child2 is not None:
+            branch_length2 = max(self.age - self.child2.age, 0.0)
+            right = f"{self.child2.to_newick_ages()}:{branch_length2:.6f}"
+
+        return f"({left},{right})"
 
 
 # alias declarations
