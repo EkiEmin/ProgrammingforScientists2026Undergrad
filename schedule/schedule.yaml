@@ -640,10 +640,12 @@ weeks:
         detail: "Subroutines in X-Toy: computing a GCD the slow way. Nothing new to prepare."
         prepare:
           - kind: after
-            text: "Code along 7.8: Trivial GCD in X-Toy"
+            text: "Code along 7.8: The Trivial GCD Algorithm in X-Toy"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/trivial-gcd-in-x-toy/"
             minutes: 36
           - kind: after
-            text: "Code along 7.9: Subroutines for Trivial GCD"
+            text: "Code along 7.9: Subroutines in X-Toy: Running Trivial GCD"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/subroutines-for-trivial-gcd-in-x-toy/"
             minutes: 32
             note: "Needed for HW7."
       - date: 2026-11-20
@@ -666,13 +668,16 @@ weeks:
         detail: "Euclid's beautiful speedup for GCD, paradoxes of self-reference, then Turing machines and the halting problem: what no computer can ever do. Nothing new to prepare."
         prepare:
           - kind: after
-            text: "Code along 7.10: Euclid's GCD in X-Toy"
+            text: "Code along 7.10: Euclid's GCD Algorithm in X-Toy: A Beautiful Speedup"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/euclids-gcd-algorithm-in-x-toy/"
             minutes: 18
           - kind: after
             text: "Code along 7.11: The Limits of the Machine: Self-Reference and Programs That Rewrite Themselves"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/self-reference-and-programs-that-rewrite-themselves/"
             minutes: 27
           - kind: after
             text: "Code along 7.12: Turing Machines and the Halting Problem"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/turing-machines-and-the-halting-problem/"
             minutes: 31
       - date: 2026-11-26
         kind: no-class
