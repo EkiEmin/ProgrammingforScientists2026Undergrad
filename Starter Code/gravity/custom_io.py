@@ -30,7 +30,6 @@ def read_universe(filename: str) -> Universe:
     g_const: float = float(lines[1])
     if g_const <= 0:
         raise ValueError(f"Gravitational constant must be > 0, got {g_const}")
-    Universe.gravitational_constant = g_const
 
     bodies: list[Body] = []
     i: int = 2
@@ -72,7 +71,7 @@ def read_universe(filename: str) -> Universe:
         bodies.append(body)
         i += 6
 
-    return Universe(bodies, width)
+    return Universe(bodies, width, g_const)
 
 
 def parse_ordered_pair(line: str) -> OrderedPair:

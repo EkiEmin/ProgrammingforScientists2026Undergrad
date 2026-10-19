@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="02-120 Programming for Scientists, Fall 2026: how Phillip sets up Claude, and what you need for your project.">
+<title>How I Set Up Claude</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #F7F8FA;
+    --surface: #FFFFFF;
+    --surface-2: #F1F3F7;
+    --ink: #171A20;
+    --ink-2: #3A3F4A;
+    --muted: #6B7280;
+    --rule: #E3E6EC;
+    --rule-strong: #CDD2DB;
+    --blue: #1F5FAD;
+    --red: #B01B2E;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif; font-size: 17px; line-height: 1.6;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 16px 64px; }
+  .back { font-size: 14px; }
+  a { color: var(--blue); }
+  h1 { font-family: Spectral, Georgia, serif; font-weight: 600; font-size: 38px; line-height: 1.15; margin: 18px 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 28px; }
+  h2 { font-family: Spectral, Georgia, serif; font-weight: 600; font-size: 23px; margin: 34px 0 6px; }
+  p { margin: 0 0 14px; color: var(--ink-2); }
+  code {
+    font-family: "IBM Plex Mono", monospace; font-size: 14px; color: var(--ink);
+    background: var(--surface-2); border: 1px solid var(--rule); border-radius: 3px; padding: 1px 5px;
+  }
+  .box {
+    margin: 36px 0 0; padding: 18px 20px; background: var(--surface);
+    border: 1px solid var(--rule-strong); border-left: 3px solid var(--red); border-radius: 4px;
+  }
+  .box h2 { margin-top: 0; }
+  .box ol { margin: 0; padding-left: 22px; color: var(--ink-2); }
+  .wrap > ul { margin: 0 0 14px; padding-left: 22px; color: var(--ink-2); }
+  .wrap > ul li { margin: 0 0 8px; }
+  .box li { margin: 0 0 8px; }
+  footer { margin-top: 40px; font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./">&larr; 02-120 semester map</a>
+  <h1>How I Set Up Claude</h1>
+  <p class="sub">02-120 Programming for Scientists, Fall 2026 &middot; Phillip Compeau</p>
+
+  <p>This page is about the Claude stack that I have built to help me with my work: teaching, research, running courses, and everything in between. It is also about how you can build one of your own to help you in college, in this class and far beyond it.</p>
+  <p>Out of the box, Claude starts every conversation with amnesia. Almost everything in my setup exists to fix that. I give Claude a memory, standing rules, and skills it can reuse, and then I stay the manager. Several of these pieces are ideas you have already met in this course. You do not need all of this for your project, and the boxes at the bottom say which parts you need now and which are worth growing into.</p>
+
+  <h2>1. Everything happens in Claude Code, in a folder</h2>
+  <p>I spend most of my working day in Claude Code, using the strongest model available (right now, Opus 5.5). Every project is one folder, and every folder is a GitHub repository. Claude works on the files in that folder directly, so nothing gets lost in a chat window, and everything it builds is mine to keep, change, and share.</p>
+
+  <h2>2. Claude gets a memory that I can read</h2>
+  <p>A file called <code>CLAUDE.md</code> at the top of a folder is read at the start of every session. Mine says who I am, how I like to work, and where everything else lives. Behind it sits a folder of short notes, one topic per note, with an index that points to them. The index works like the dictionaries from Chapter 1: look up a topic, and get back the note about it. I keep the index short, and when something changes, I update the value for that key rather than adding a second entry next to it; otherwise the memory fills up with contradictions. Claude writes most of these notes, and I prune them.</p>
+
+  <h2>3. I write my rules down once</h2>
+  <p>Anything I got tired of repeating became a standing rule in memory: how I write, how I like my Python (type hints everywhere), and to commit and push when a job is done. If you correct Claude about the same thing twice, write it down.</p>
+
+  <h2>4. Repeated work becomes a skill</h2>
+  <p>Since Chapter 0, whenever we have found ourselves writing the same code twice, we have pulled it out into a function and called that function instead. Skills are the same idea for Claude: a skill is a short file of instructions for a task that I do over and over, which Claude loads when the task calls for it. I have skills for grading, building a syllabus, running course websites, and more. Two of them come from the Vibe Coding Studio and are made for students: <a href="https://www.philomathlearning.com/studio/skills/learn-with-ai-tutor.zip">learn-with-ai-tutor</a>, which turns Claude into a tutor that teaches one idea at a time and quizzes you, and <a href="https://www.philomathlearning.com/studio/skills/test-every-function.zip">test-every-function</a>, which makes Claude prove that each function works and explain the tests in plain English.</p>
+
+  <h2>5. One brain across machines</h2>
+  <p>My memory and skills live in a private GitHub repository that both of my computers point to, so Claude knows the same things wherever I sit down. It is the same clone, commit, and pull rhythm that you use with the course repository every week, and Git also gives me a history of every change to Claude's memory.</p>
+
+  <h2>6. Claude works with the tools I use</h2>
+  <p>Connectors let Claude work directly with other apps I use every day. I decide what it can touch, and anything that leaves my hands comes back to me for approval first. For your project, you need only GitHub and a place to deploy your app.</p>
+
+  <h2>7. Secrets stay out of the chat</h2>
+  <p>Passwords and API keys live in a password manager, and Claude reads them only when a command needs them. Never paste a key into a prompt, and never commit one to a repository.</p>
+
+  <h2>8. I talk more than I type</h2>
+  <p>I dictate most of my prompts with a speech-to-text app. Talking gets far more context out of my head than typing does, and context is what Claude needs most.</p>
+
+  <h2>9. I stay the manager</h2>
+  <p>Google studied what makes its best managers good (Project Oxygen), and most of what it found applies to managing AI. Here is what I do for the qualities that matter most.</p>
+  <ul>
+    <li><b>A clear vision.</b> I always start with the end in mind: what I am building, and what done looks like. I am never just chatting back and forth with my new AI friend. For anything bigger than a small fix, I start in plan mode and read the plan before any code gets written. This is the top-down programming of Chapter 3: agree on the highest-level function and the subroutines it needs before writing any of them.</li>
+    <li><b>Results oriented.</b> Done means proven. I make Claude show that the result works, with the kind of tests you wrote in the Testing and Debugging recitation, an explanation in plain English, and a figure when one helps.</li>
+    <li><b>A good communicator.</b> I say what I want and why, with all the context I have. In plan mode, I let Claude ask me questions before it builds anything.</li>
+    <li><b>Does not micromanage.</b> I hand Claude a whole job rather than one line at a time. I check what the program does rather than reading every line, and I ask Claude to explain any code that I do not understand.</li>
+    <li><b>A good coach.</b> I do not accept the first thing that comes back. I push back, ask why, and go another round; when I correct the same thing twice, it goes into memory so that it sticks.</li>
+    <li><b>A strong decision maker.</b> When Claude surfaces a design choice, I make the call instead of letting it drift. I own every commit, which means I own every mistake in it.</li>
+    <li><b>Technical skills.</b> I know enough to tell when something is off. That is why you are learning to program in this course, even though Claude can write the code.</li>
+  </ul>
+
+  <h2>10. Your stack and your project</h2>
+  <p>Your own setup and your project submission live in different places, so you can build the first without giving it away in the second. Claude Code keeps a separate log for each folder that you work in, and your build journal is only the logs from your project folder, together with its Git history.</p>
+  <ul>
+    <li>Do all of your project work in Claude Code, inside your project repository. Work that happens in a chat window or in another folder never reaches your journal, so we cannot give you credit for it.</li>
+    <li>Your personal memory and skills, which live in the <code>.claude</code> folder in your home directory, are never collected. Use them freely.</li>
+    <li>The <code>CLAUDE.md</code> and skills inside your project repository are part of your project and are submitted with it, so keep anything private out of them.</li>
+    <li>Folders for your other classes are yours alone; nothing from them is collected.</li>
+    <li>Before you push, you can read your <code>journal/</code> folder and redact anything personal. <a href="project/journal/">Set up your build journal here.</a></li>
+  </ul>
+
+  <section class="box">
+    <h2>What you need for your project</h2>
+    <ol>
+      <li>Claude Code, working inside your one project repository on GitHub.</li>
+      <li>A <code>CLAUDE.md</code> in that repository that says who you are, how you like to learn, and what you are building.</li>
+      <li>The two skills above, added to your repository's <code>.claude/skills/</code> folder.</li>
+      <li>Your paper, sources, and data in the repository, so that Claude can teach them to you.</li>
+      <li>The manager habits in item 9, from your first session to your last.</li>
+      <li>Every project session in Claude Code, inside that repository (item 10).</li>
+    </ol>
+  </section>
+
+  <section class="box">
+    <h2>Growing it through college</h2>
+    <ol>
+      <li>Keep one folder per class, each with its own <code>CLAUDE.md</code> that says what the class is and how you want to learn it.</li>
+      <li>When you study for any course, have Claude teach you one idea at a time and quiz you, rather than hand you answers.</li>
+      <li>Each time you correct Claude about the same thing twice, add a line to memory; each time you do the same task three times, turn it into a skill.</li>
+      <li>Put your memory and skills in a private GitHub repository, so that your stack grows with you from year to year.</li>
+    </ol>
+  </section>
+
+  <footer>To see all of this in action, watch the end of <a href="https://youtu.be/f2w1WjsB1qc?t=4650">Vibe Coding Studio Session 3</a> (from 1:17:30) and all of <a href="https://youtu.be/Dl2vhxYcVT8">Session 4</a>.</footer>
+</div>
+</body>
+</html>

@@ -1,26 +1,47 @@
 import sys
-import pygame # for drawing to a virtual canvas
-import numpy # for converting drawings to arrays that can be rendered as frames of videos
-import imageio # for rendering videos
-
-# specific functions that we will need from elsewhere in the folder
-from custom_io import read_board_from_file, read_rules_from_file
-from functions import play_automaton 
+import pygame
+from custom_io import read_board_from_file, read_rules_from_file, read_color_map_from_file
+from functions import play_automaton
 from drawing import draw_game_boards
+from animate import animate_surfaces
 
 def main():
     print("Cellular automata!")
 
-def pygame_surface_to_numpy(surface: pygame.Surface) -> numpy.ndarray:
-    """
-    Convert a Pygame Surface to a NumPy RGB image array.
+    if len(sys.argv) < 7:
+        raise ValueError(
+            "Usage: python main.py neighborhood_type rule_file initial_board_file output_file cell_width num_gens [color_map_file]"
+        )
 
-    Returns:
-        numpy.ndarray: The frame as (height, width, 3) uint8 RGB.
-    """
+    neighborhood_type = sys.argv[1]  # "vonNeumann" or "Moore"
+    rule_file = sys.argv[2]  # where are rule strings found?
+    initial_board_file = sys.argv[3]  # my starting GameBoard file name
+    output_file = sys.argv[4]  # where to draw the final MP4 video boards
+    cell_width = int(sys.argv[5])  # how many pixels wide should each cell be?
+    num_gens = int(sys.argv[6])  # how many generations to play the automaton?
 
-    # get a numpy array associated with the surface and swap its axes
-    return pygame.surfarray.array3d(surface).swapaxes(0, 1)
+    if len(sys.argv) > 7:
+        color_map_file = sys.argv[7]
+        color_map = read_color_map_from_file(color_map_file)
+
+        print("Color map in successfully!")
+
+    else: 
+        color_map: dict[str, str] = {
+            "0": "dark_gray",
+            "1": "white",
+            "2": "red",
+            "3": "green",
+            "4": "yellow",
+            "5": "orange",
+            "6": "purple",
+            "7": "blue",
+            "8": "black",
+        }
+
+    print("Parameters read in successfully!")
+
+    # fill in code to run cellular automata
 
 if __name__ == "__main__":
     main()

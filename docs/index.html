@@ -93,6 +93,10 @@
     font-weight: 600; font-size: 19px; color: var(--ink);
   }
   .repo p { margin: 0 0 10px; }
+  .repo ul { margin: 0; padding-left: 20px; }
+  .repo li { margin: 0 0 8px; }
+  .repo li:last-child { margin-bottom: 0; }
+  .project { border-left-color: var(--red); }
   .repo a { overflow-wrap: anywhere; }
   .repo p:last-child { margin-bottom: 0; }
   .repo code {
@@ -271,6 +275,7 @@
       <a href="https://p4l-website.vercel.app/courses/02-120-daily-challenges/" target="_blank" rel="noopener">Daily challenges</a>
       <a href="https://programmingforlovers.com" target="_blank" rel="noopener">Code alongs</a>
       <a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad" target="_blank" rel="noopener">Course code on GitHub</a>
+      <a href="#project">Final project</a>
     </nav>
   </header>
 
@@ -281,6 +286,12 @@
     <p>Everything we write together in class lives in <a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad" target="_blank" rel="noopener">github.com/phcompeau/ProgrammingforScientists2026Undergrad</a>, together with the starter files for every assignment. Clone it in the first week and pull from it before each class, because we add to it every week.</p>
     <code class="clone">git clone https://github.com/phcompeau/ProgrammingforScientists2026Undergrad.git</code>
     <p>New to Git? <a href="https://desktop.github.com" target="_blank" rel="noopener">GitHub Desktop</a> does the same thing with buttons: <b>File &gt; Clone Repository &gt; URL</b>, then <b>Fetch origin</b> and <b>Pull</b> each week. The <a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad#readme" target="_blank" rel="noopener">repository README</a> explains how <code>Starter Code</code> and <code>Finished Code</code> are organized, and how to keep your own edits out of Git's way.</p>
+  </section>
+
+  <section class="repo project" id="project">
+    <h3>Final project</h3>
+    <p>You will spend the second half of the semester building a piece of scientific software of your own with Claude Code. The proposal is due Wednesday, October 7, so that you get feedback before Fall Break. Every project date is also on the calendar below. <a href="project/Project_Description_F26.pdf" target="_blank" rel="noopener">Read the project description (PDF)</a>.</p>
+    <ul><li><b><a href="https://youtu.be/f2w1WjsB1qc?t=4650" target="_blank" rel="noopener">Watch me build one, slowly</a>.</b> These two Vibe Coding Studio videos rebuild the spatial games model from our September 22 class, slowly and completely, starting from the Nowak and May paper. Watch the end of Session 3, from 1:17:30 (47 minutes), which sets up the project folder in Claude Code and gives Claude a memory, the paper, and skills, then writes and tests the first function. Then watch all of <a href="https://youtu.be/Dl2vhxYcVT8" target="_blank" rel="noopener">Session 4</a>, (2 hours 16 minutes), which writes a spec, builds and tests the model, animates it, and deploys it to the web as a finished app. That is the same path your project will follow. I went slowly and steadily on purpose so that you can see every step; with Opus 5.5, Claude will build something much bigger than this with less prompting and more accuracy.</li><li><b>Claude accounts.</b> We are going to get a Claude account for every student who does not already have one. If you do not have one yet, hold off on buying one and stand by for details.</li><li><b><a href="claude-setup.html" target="_blank" rel="noopener">How I set up Claude</a>.</b> My high-level guide to the setup I use every day, and which parts of it matter for your project.</li></ul>
   </section>
 
   <div class="legend">
@@ -587,9 +598,18 @@
           <span class="date">Tue 10/6</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">OOP I</div><div class="detail">We plan the gravity simulator top-down and start the physics engine.</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-4/chapter-4-core-text/" target="_blank" rel="noopener">Read the Chapter 4 core text</a></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/introduction-to-object-oriented-programming-in-python/" target="_blank" rel="noopener">Chapter 4 code along: An Introduction to Classes</a><span class="mins">1 hr 42 min</span><span class="prepnote">This is the longest preparation of the semester. Start early. Copy Starter Code/shapes into python/src/ and code along in the copy.</span></li><li class="prep prep-required"><a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad" target="_blank" rel="noopener">Pull the course repository and copy Starter Code/gravity into python/src/; we build from it in class</a></li></ul></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Cellular automata discussion; OOP I</div><div class="detail">We discuss cellular automata, then plan the gravity simulator top-down and start the physics engine.</div></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-4/chapter-4-core-text/" target="_blank" rel="noopener">Read the Chapter 4 core text</a></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/introduction-to-object-oriented-programming-in-python/" target="_blank" rel="noopener">Chapter 4 code along: An Introduction to Classes</a><span class="mins">1 hr 42 min</span><span class="prepnote">This is the longest preparation of the semester. Start early. Copy Starter Code/shapes into python/src/ and code along in the copy. Then check your work with the six Introduction to Classes problems in the Chapter 4 Check Your Work, open Thu 10/1 and due Mon 10/5 at 11:59pm.</span></li><li class="prep prep-required"><a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad" target="_blank" rel="noopener">Pull the course repository and copy Starter Code/gravity into python/src/; we build from it in class</a></li><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="cellular-automata.html" target="_blank" rel="noopener">Cellular Automata Gallery: every automaton in the starter code, with the command that runs it</a></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
+      </div>
+      <div class="row row-deadline" data-date="2026-10-07">
+        <div class="cell cell-date">
+          <span class="date">Wed 10/7</span>
+          <span class="kind">Deadline</span>
+        </div>
+        <div class="cell cell-class"><span class="colhead">In class</span><span class="none">&middot;</span></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
+        <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due"><a href="project/Project_Description_F26.pdf" target="_blank" rel="noopener">Project proposal due</a></li></ul></div>
       </div>
       <div class="row row-lecture" data-date="2026-10-08">
         <div class="cell cell-date">
@@ -597,7 +617,7 @@
           <span class="kind">Lecture</span>
         </div>
         <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">OOP II</div><div class="detail">We finish the engine and animate the solar system.</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/building-a-gravity-simulator-in-python/" target="_blank" rel="noopener">Building a Gravity Simulator, to replay what we build in class this week</a></li></ul></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/building-a-gravity-simulator-in-python/" target="_blank" rel="noopener">Building a Gravity Simulator, to replay what we build in class this week</a></li><li class="prep prep-after"><a href="gravity.html" target="_blank" rel="noopener">Gravity Simulator Gallery: Jupiter&#x27;s moons and every three-body orbit, with the command that runs each one</a></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
       <div class="row row-recitation" data-date="2026-10-09">
@@ -605,7 +625,7 @@
           <span class="date">Fri 10/9</span>
           <span class="kind">Recitation</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 5: Hashing</div><div class="detail">Neighbor search for boids with a spatial grid, which is a hash table.</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 5: Project kickoff</div><div class="detail">Hand Claude your proposal and get a first draft in minutes, then work out in small groups what questions to ask of it. Bring your laptop with Claude Code installed.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due"><a href="https://p4l-website.vercel.app/courses/02-120-homework/" target="_blank" rel="noopener">HW3 due (automata and Gray-Scott)</a></li></ul></div>
       </div></div>
@@ -665,7 +685,7 @@
           <span class="kind">Lecture</span>
         </div>
         <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Trees I</div><div class="detail">We start implementing UPGMA.</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-5/chapter-5-core-text/" target="_blank" rel="noopener">Read the Chapter 5 core text</a></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/first-evolutionary-tree-code-along-in-python/" target="_blank" rel="noopener">Chapter 5 code along: Returning to Shapes, An Introduction to Methods</a><span class="mins">1 hr 47 min</span></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/data-for-trees/" target="_blank" rel="noopener">Data for Trees</a><span class="mins">7 min</span></li></ul></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-5/chapter-5-core-text/" target="_blank" rel="noopener">Read the Chapter 5 core text</a></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/methods-on-shapes-in-python/" target="_blank" rel="noopener">Code along 5.1: Methods on Shapes</a><span class="mins">39 min</span><span class="prepnote">Code along in a copy of Starter Code/shapes_methods.</span></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/everything-is-an-object-in-python/" target="_blank" rel="noopener">Code along 5.2: Everything Is an Object</a><span class="mins">23 min</span></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/designing-data-for-trees-in-python/" target="_blank" rel="noopener">Code along 5.3: Designing Data for Trees</a><span class="mins">37 min</span></li><li class="prep prep-required"><a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad" target="_blank" rel="noopener">Pull the course repository and copy Starter Code/upgma into python/src/; we build from it in class</a></li><li class="prep prep-required"><a href="https://cran.r-project.org/" target="_blank" rel="noopener">Install R, then RStudio Desktop; we use them on Thursday to draw our trees</a><span class="prepnote">Install R first from CRAN, then RStudio Desktop from https://posit.co/download/rstudio-desktop/. Then open RStudio and run install.packages(c(&quot;ape&quot;, &quot;rstudioapi&quot;)) in its console.</span></li><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/how-upgma-works/" target="_blank" rel="noopener">Code along 5.4: How UPGMA Works</a><span class="mins">25 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/planning-upgma-top-down-in-python/" target="_blank" rel="noopener">Code along 5.5: Planning UPGMA Top-Down</a><span class="mins">44 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/validating-input-initializing-the-tree-and-what-slices-copy/" target="_blank" rel="noopener">Code along 5.6: Validating Input, Initializing the Tree, and What Slices Copy</a><span class="mins">25 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/shrinking-the-matrix-and-clusters-in-python/" target="_blank" rel="noopener">Code along 5.7: Shrinking the Matrix and Clusters</a><span class="mins">35 min</span></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
       <div class="row row-lecture" data-date="2026-10-22">
@@ -673,8 +693,8 @@
           <span class="date">Thu 10/22</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Trees II</div><div class="detail">We finish UPGMA and apply it to real data.</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/recursion-and-completing-our-upgma-implementation-in-python/" target="_blank" rel="noopener">Recursion and Completing UPGMA covers the remaining details, including Newick format</a><span class="mins">2 hr 3 min</span></li></ul></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Trees II</div><div class="detail">We finish the UPGMA engine with recursion, then visualize trees built from real data. We discuss Newick format only at a high level; the code that writes it is already in the starter code.</div></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/newick-format-in-python/" target="_blank" rel="noopener">Code along 5.10: Newick Format</a><span class="mins">26 min</span><span class="prepnote">Watch for the idea; you do not need to write this code. to_newick_ages() is already filled in inside Starter Code/upgma/datatypes.py. If you copied the starter folder before Saturday, October 17, pull the repository and copy that method into your own datatypes.py.</span></li><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/an-introduction-to-recursion-in-python/" target="_blank" rel="noopener">Code along 5.8: An Introduction to Recursion</a><span class="mins">25 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/counting-leaves-recursively-in-python/" target="_blank" rel="noopener">Code along 5.9: Counting Leaves Recursively</a><span class="mins">26 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/running-upgma-on-real-data-in-python/" target="_blank" rel="noopener">Code along 5.11: Running UPGMA on Real Data</a><span class="mins">18 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/touring-our-evolutionary-trees/" target="_blank" rel="noopener">Code along 5.12: Touring Our Evolutionary Trees</a><span class="mins">27 min</span></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
       <div class="row row-recitation" data-date="2026-10-23">
@@ -684,7 +704,7 @@
         </div>
         <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 6: Binary search trees</div><div class="detail">Recursion returns: range queries on the E. coli gene table.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
-        <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due due-flag"><a href="https://p4l-website.vercel.app/courses/02-120-homework/" target="_blank" rel="noopener">HW4 due (boids). Last hand-built assignment; AI tools unlock from HW5 onward.</a></li></ul></div>
+        <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due due-flag"><a href="https://p4l-website.vercel.app/courses/02-120-homework/" target="_blank" rel="noopener">HW4 due (boids)</a></li></ul></div>
       </div></div>
     </section>
     <section class="week" data-start="2026-10-26" data-end="2026-10-30">
@@ -694,7 +714,7 @@
           <h2 class="wtitle">Midterm 1</h2>
         </div>
       </header>
-      <p class="wnote">No new code alongs this week.</p>
+      <p class="wnote">Midterm 1 is Tuesday. Chapter 6 starts Thursday, with nothing to prepare.</p>
       <div class="rows">
         <div class="row rowhead">
           <div class="cell">Date</div>
@@ -716,8 +736,8 @@
           <span class="date">Thu 10/29</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">To be announced<span class="tbd">to be confirmed</span></div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Parallel I</div><div class="detail">Why parallelism, and our first parallel program. Nothing to prepare: we build it together the class after the exam. Code alongs 6.1 to 6.3 replace the daily challenge today.</div></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallelism-vs-concurrency/" target="_blank" rel="noopener">Code along 6.1: Parallelism vs. Concurrency</a><span class="mins">15 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/summing-a-list-across-processes-in-python/" target="_blank" rel="noopener">Code along 6.2: Summing a List Across Processes</a><span class="mins">40 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/any-number-of-processes-and-timing-the-speedup-in-python/" target="_blank" rel="noopener">Code along 6.3: Any Number of Processes and Timing the Speedup</a><span class="mins">37 min</span><span class="prepnote">Do all three in place of today&#x27;s daily challenge; if we did not reach 6.3 in class, it is new material.</span></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
       <div class="row row-no-class" data-date="2026-10-30">
@@ -727,17 +747,17 @@
         </div>
         <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">No recitation: optional Midterm 1 debrief and project office hours</div><div class="detail">The TAs open GHC 4211 at the usual section times. Attendance is not taken.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
-        <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
+        <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due"><a href="project/journal/" target="_blank" rel="noopener">Project repository link due on Canvas (set up your build journal first)</a></li><li class="due"><a href="project/Project_Description_F26.pdf" target="_blank" rel="noopener">Revised project proposal due (only if we asked for one)</a></li></ul></div>
       </div></div>
     </section>
     <section class="week" data-start="2026-11-02" data-end="2026-11-06">
       <header class="whead">
         <div class="wleft">
           <span class="wlabel">Week 9</span>
-          <h2 class="wtitle">Parallel programming 1</h2>
+          <h2 class="wtitle">Simulating Chemical Reactions with Parallel Programming</h2>
         </div>
       </header>
-      
+      <p class="wnote">Project TA check-ins run from Wednesday, November 4 through Friday, November 13.</p>
       <div class="rows">
         <div class="row rowhead">
           <div class="cell">Date</div>
@@ -768,8 +788,8 @@
           <span class="date">Thu 11/5</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Parallel I</div><div class="detail">Summing a list in parallel and timing the speedup.</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required">Read the assigned introduction to parallelism versus concurrency</li><li class="prep prep-required">Watch Parallel Programming Part 1 on YouTube<span class="mins">1 hr 44 min</span></li></ul></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Parallel II</div><div class="detail">Simulating diffusion, then parallelizing it with a pool of workers.</div></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallel-craps-in-python/" target="_blank" rel="noopener">Code along 6.4: Parallel Craps</a><span class="mins">41 min</span><span class="prepnote">The parallel pattern from code alongs 6.2 and 6.3, applied to a Monte Carlo simulation.</span></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/a-serial-diffusion-simulator-in-python/" target="_blank" rel="noopener">Download diffusion-python.zip from code along 6.5 and unzip it into python/src/; we build from it in class</a></li><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/a-serial-diffusion-simulator-in-python/" target="_blank" rel="noopener">Code along 6.5: A Serial Diffusion Simulator</a><span class="mins">19 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallel-diffusion-with-pool-and-starmap-in-python/" target="_blank" rel="noopener">Code along 6.6: Parallel Diffusion with Pool and starmap</a><span class="mins">49 min</span></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
       <div class="row row-recitation" data-date="2026-11-06">
@@ -786,10 +806,10 @@
       <header class="whead">
         <div class="wleft">
           <span class="wlabel">Week 10</span>
-          <h2 class="wtitle">Parallel programming 2 and assembly 1</h2>
+          <h2 class="wtitle">Reaction-Diffusion and the Dark Heart of Computer Science</h2>
         </div>
       </header>
-      
+      <p class="wnote">Project TA check-ins continue through Friday, November 13.</p>
       <div class="rows">
         <div class="row rowhead">
           <div class="cell">Date</div>
@@ -802,8 +822,8 @@
           <span class="date">Tue 11/10</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Parallel II</div><div class="detail">Parallel craps and a parallel reaction-diffusion simulator.</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Parallel III</div><div class="detail">Reaction-diffusion, the point of the chapter: we apply reactions, then tour the patterns that predators, epidemics, and rock paper scissors produce.</div></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/reaction-diffusion-designing-the-serial-engine-in-python/" target="_blank" rel="noopener">Code along 6.7: Reaction-Diffusion: Designing the Serial Engine</a><span class="mins">34 min</span><span class="prepnote">Download reaction-diffusion-python.zip from this page; we build on it in class.</span></li><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/reaction-diffusion-applying-reactions-in-python/" target="_blank" rel="noopener">Code along 6.8: Reaction-Diffusion: Applying Reactions</a><span class="mins">34 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/a-tour-of-reaction-systems/" target="_blank" rel="noopener">Code along 6.11: A Tour of Reaction Systems</a><span class="mins">36 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallel-reaction-diffusion-strips-and-halos-in-python/" target="_blank" rel="noopener">Code along 6.9: Parallel Reaction-Diffusion: Strips and Halos</a><span class="mins">29 min</span><span class="prepnote">New material, not covered in class. Needed for HW6: dividing a board into strips and handling the boundaries between them.</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallel-reaction-diffusion-processing-strips-in-python/" target="_blank" rel="noopener">Code along 6.10: Parallel Reaction-Diffusion: Processing Strips</a><span class="mins">28 min</span><span class="prepnote">New material, not covered in class. Needed for HW6.</span></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
       <div class="row row-lecture" data-date="2026-11-12">
@@ -811,16 +831,16 @@
           <span class="date">Thu 11/12</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Assembly I</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-reference"><span class="tag tag-reference">Optional</span>Parallel Programming Part 2 is on YouTube as a companion<span class="mins">2 hr 14 min</span></li><li class="prep prep-reference">The reaction-diffusion build is on YouTube as a companion<span class="mins">3 hr 8 min</span></li></ul></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Assembly I</div><div class="detail">Come in knowing binary and hexadecimal; we meet X-Toy, a virtual computer, and its bitwise operations.</div></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/the-cpu-memory-and-binary/" target="_blank" rel="noopener">Code along 7.1: The CPU, Memory, and Binary</a><span class="mins">29 min</span><span class="prepnote">7.1 and 7.2 are one continuous lesson on the math of binary and hexadecimal, and the only prep for the rest of the course; Wednesday&#x27;s daily challenge practices it. Every later code along we build together in class.</span></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/hexadecimal-a-shorthand-for-binary/" target="_blank" rel="noopener">Code along 7.2: Hexadecimal: A Shorthand for Binary</a><span class="mins">27 min</span></li><li class="prep prep-required"><a href="https://lift.cs.princeton.edu/xtoy/" target="_blank" rel="noopener">Install Visual X-TOY</a></li><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/meet-x-toy/" target="_blank" rel="noopener">Code along 7.3: Meet X-Toy, a Virtual Computer</a><span class="mins">38 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/bitwise-operations-in-x-toy/" target="_blank" rel="noopener">Code along 7.4: Bitwise Operations in X-Toy</a><span class="mins">20 min</span></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
-      <div class="row row-recitation" data-date="2026-11-13">
+      <div class="row row-no-class" data-date="2026-11-13">
         <div class="cell cell-date">
           <span class="date">Fri 11/13</span>
-          <span class="kind">Recitation</span>
+          <span class="kind">No class</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 8: Graphs and breadth-first search</div><div class="detail">Contact tracing on a real contact network.</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">No recitation: AI4Bio symposium</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div></div>
@@ -829,7 +849,7 @@
       <header class="whead">
         <div class="wleft">
           <span class="wlabel">Week 11</span>
-          <h2 class="wtitle">Assembly 2 and theory 1</h2>
+          <h2 class="wtitle">Assembly Language: Loops, Functions, and GCD</h2>
         </div>
       </header>
       
@@ -854,8 +874,8 @@
           <span class="date">Tue 11/17</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Assembly II</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required">Read the assigned introduction to memory management and binary</li></ul></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Assembly II</div><div class="detail">Negative numbers, branching, and our first loops and functions in X-Toy. Nothing new to prepare.</div></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/negative-numbers-and-twos-complement-in-x-toy/" target="_blank" rel="noopener">Code along 7.5: Negative Numbers and Two&#x27;s Complement</a><span class="mins">13 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/indirect-memory-branching-and-if-else-in-x-toy/" target="_blank" rel="noopener">Code along 7.6: Indirect Memory, Branching, and If/Else</a><span class="mins">15 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/loops-and-functions-in-x-toy/" target="_blank" rel="noopener">Code along 7.7: Loops and Functions in X-Toy: Multiplication</a><span class="mins">34 min</span><span class="prepnote">Needed for HW7.</span></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
       <div class="row row-lecture" data-date="2026-11-19">
@@ -863,8 +883,8 @@
           <span class="date">Thu 11/19</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Theory I</div><div class="detail">Turing machines and the halting problem.</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-reference"><span class="tag tag-reference">Optional</span>Assembly Language Part 1 is on YouTube for review and for HW7<span class="mins">1 hr 54 min</span></li><li class="prep prep-reference">Assembly Language Part 2 is on YouTube for review and for HW7<span class="mins">2 hr</span></li></ul></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Assembly III</div><div class="detail">Subroutines in X-Toy: computing a GCD the slow way. Nothing new to prepare.</div></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/trivial-gcd-in-x-toy/" target="_blank" rel="noopener">Code along 7.8: The Trivial GCD Algorithm in X-Toy</a><span class="mins">36 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/subroutines-for-trivial-gcd-in-x-toy/" target="_blank" rel="noopener">Code along 7.9: Subroutines in X-Toy: Running Trivial GCD</a><span class="mins">32 min</span><span class="prepnote">Needed for HW7.</span></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
       <div class="row row-recitation" data-date="2026-11-20">
@@ -872,16 +892,16 @@
           <span class="date">Fri 11/20</span>
           <span class="kind">Recitation</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 9: Depth-first search and hard problems</div><div class="detail">Backtracking for the knight&#x27;s tour, and why some graph questions may never be easy.</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 8: Depth-first search and hard problems</div><div class="detail">Backtracking for the knight&#x27;s tour, and why some graph questions may never be easy.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
-        <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
+        <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due"><a href="project/Project_Description_F26.pdf" target="_blank" rel="noopener">First version of your project app live on the web</a></li></ul></div>
       </div></div>
     </section>
     <section class="week" data-start="2026-11-23" data-end="2026-11-27">
       <header class="whead">
         <div class="wleft">
           <span class="wlabel">Week 12</span>
-          <h2 class="wtitle">Theory 2 and Thanksgiving</h2>
+          <h2 class="wtitle">The Limits of the Machine, and Thanksgiving</h2>
         </div>
       </header>
       <p class="wnote">Outside of class this week: HW7 and your project.</p>
@@ -897,8 +917,8 @@
           <span class="date">Tue 11/24</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Theory II</div><div class="detail">P versus NP.</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Assembly IV: The limits of the machine</div><div class="detail">Euclid&#x27;s beautiful speedup for GCD, paradoxes of self-reference, then Turing machines and the halting problem: what no computer can ever do. Nothing new to prepare.</div></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-after"><span class="tag tag-after">After class</span><a href="https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/euclids-gcd-algorithm-in-x-toy/" target="_blank" rel="noopener">Code along 7.10: Euclid&#x27;s GCD Algorithm in X-Toy: A Beautiful Speedup</a><span class="mins">18 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/self-reference-and-programs-that-rewrite-themselves/" target="_blank" rel="noopener">Code along 7.11: The Limits of the Machine: Self-Reference and Programs That Rewrite Themselves</a><span class="mins">27 min</span></li><li class="prep prep-after"><a href="https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/turing-machines-and-the-halting-problem/" target="_blank" rel="noopener">Code along 7.12: Turing Machines and the Halting Problem</a><span class="mins">31 min</span></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
       <div class="row row-no-class" data-date="2026-11-26">
@@ -940,16 +960,16 @@
           <span class="date">Tue 12/1</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Project presentations</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Project demo day</div><div class="detail">A science fair: half the class demos at tables while the other half walks around, then we swap. Practice for Thursday.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
-        <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
+        <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due"><a href="project/Project_Description_F26.pdf" target="_blank" rel="noopener">Final project app, code, and video due</a></li></ul></div>
       </div>
-      <div class="row row-lecture" data-date="2026-12-03">
+      <div class="row row-exam" data-date="2026-12-03">
         <div class="cell cell-date">
           <span class="date">Thu 12/3</span>
-          <span class="kind">Lecture</span>
+          <span class="kind">Exam</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Project presentations</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Project assessment, in class</div><div class="detail">Closed and on paper, about your own project.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
@@ -963,7 +983,7 @@
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div></div>
     </section>
-    <section class="week" data-start="2026-12-07" data-end="2026-12-11">
+    <section class="week" data-start="2026-12-07" data-end="2026-12-13">
       <header class="whead">
         <div class="wleft">
           <span class="wlabel">Finals</span>
@@ -978,12 +998,12 @@
           <div class="cell">Complete before class</div>
           <div class="cell">Due</div>
         </div>
-      <div class="row row-exam" data-date="2026-12-07">
+      <div class="row row-exam" data-date="2026-12-13">
         <div class="cell cell-date">
-          <span class="date">Mon 12/7</span>
+          <span class="date">Sun 12/13</span>
           <span class="kind">Exam</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Midterm 2, held in the final exam period<span class="tbd">to be confirmed</span></div><div class="detail">OOP II, parallel programming, assembly language, and theory. Exact date and time set by the registrar.</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Midterm 2, held in the final exam period</div><div class="detail">Sunday 5:30-8:30 p.m., in person; room to be announced. OOP II, parallel programming, assembly language, and theory.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div></div>
@@ -991,7 +1011,7 @@
 
   <footer>
     <span>Recitation topics beyond Sorting II are announced closer to the date. Items marked <em>to be confirmed</em> are not yet final.</span>
-    <span class="stamp">Updated September 27, 2026</span>
+    <span class="stamp">Updated October 17, 2026</span>
   </footer>
 </div>
 

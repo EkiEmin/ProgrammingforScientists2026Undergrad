@@ -27,6 +27,36 @@ course:
   note: >-
     Code alongs listed under Complete before class are done on your own, ahead of that class meeting.
 
+project:
+  pdf: "project/Project_Description_F26.pdf"
+  intro: >-
+    You will spend the second half of the semester building a piece of scientific software of your
+    own with Claude Code. The proposal is due Wednesday, October 7, so that you get feedback before
+    Fall Break. Every project date is also on the calendar below.
+  resources:
+    - label: "Watch me build one, slowly"
+      url: "https://youtu.be/f2w1WjsB1qc?t=4650"
+      text: >-
+        These two Vibe Coding Studio videos rebuild the spatial games model from our September 22
+        class, slowly and completely, starting from the Nowak and May paper. Watch the end of Session 3,
+        from 1:17:30 (47 minutes), which sets up the project folder in Claude Code and gives Claude a
+        memory, the paper, and skills, then writes and tests the first function. Then watch all of
+      link2_label: "Session 4"
+      link2_url: "https://youtu.be/Dl2vhxYcVT8"
+      text2: >-
+        (2 hours 16 minutes), which writes a spec, builds and tests the model, animates it, and deploys
+        it to the web as a finished app. That is the same path your project will follow. I went slowly
+        and steadily on purpose so that you can see every step; with Opus 5.5, Claude will build
+        something much bigger than this with less prompting and more accuracy.
+    - label: "Claude accounts"
+      text: >-
+        We are going to get a Claude account for every student who does not already have one. If you
+        do not have one yet, hold off on buying one and stand by for details.
+    - label: "How I set up Claude"
+      url: "claude-setup.html"
+      text: >-
+        My high-level guide to the setup I use every day, and which parts of it matter for your project.
+
 links:
   ch0_text:   "https://programmingforlovers.com/chapter-0-ancient-greek-mathematics-foundations-of-computational-thinking/chapter-0-core-text/"
   ch0_along:  "https://programmingforlovers.com/chapter-0-ancient-greek-mathematics-foundations-of-computational-thinking/chapter-0-python-code-alongs/"
@@ -69,6 +99,7 @@ links:
   ca_gravity: "https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/building-a-gravity-simulator-in-python/"
   ca_methods: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/first-evolutionary-tree-code-along-in-python/"
   ca_datatrees: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/data-for-trees/"
+  ca_upgma: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/implementing-upgma-in-python/"
   ca_recursion: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/recursion-and-completing-our-upgma-implementation-in-python/"
 
 weeks:
@@ -299,8 +330,8 @@ weeks:
     days:
       - date: 2026-10-06
         kind: lecture
-        title: "OOP I"
-        detail: "We plan the gravity simulator top-down and start the physics engine."
+        title: "Cellular automata discussion; OOP I"
+        detail: "We discuss cellular automata, then plan the gravity simulator top-down and start the physics engine."
         prepare:
           - kind: required
             text: "Read the Chapter 4 core text"
@@ -309,10 +340,18 @@ weeks:
             text: "Chapter 4 code along: An Introduction to Classes"
             url: ca_classes
             minutes: 102
-            note: "This is the longest preparation of the semester. Start early. Copy Starter Code/shapes into python/src/ and code along in the copy."
+            note: "This is the longest preparation of the semester. Start early. Copy Starter Code/shapes into python/src/ and code along in the copy. Then check your work with the six Introduction to Classes problems in the Chapter 4 Check Your Work, open Thu 10/1 and due Mon 10/5 at 11:59pm."
           - kind: required
             text: "Pull the course repository and copy Starter Code/gravity into python/src/; we build from it in class"
             url: "https://github.com/phcompeau/ProgrammingforScientists2026Undergrad"
+          - kind: after
+            text: "Cellular Automata Gallery: every automaton in the starter code, with the command that runs it"
+            url: "cellular-automata.html"
+      - date: 2026-10-07
+        kind: deadline
+        due:
+          - text: "Project proposal due"
+            url: "project/Project_Description_F26.pdf"
       - date: 2026-10-08
         kind: lecture
         title: "OOP II"
@@ -321,10 +360,13 @@ weeks:
           - kind: after
             text: "Building a Gravity Simulator, to replay what we build in class this week"
             url: ca_gravity
+          - kind: after
+            text: "Gravity Simulator Gallery: Jupiter's moons and every three-body orbit, with the command that runs each one"
+            url: "gravity.html"
       - date: 2026-10-09
         kind: recitation
-        title: "Recitation 5: Hashing"
-        detail: "Neighbor search for boids with a spatial grid, which is a hash table."
+        title: "Recitation 5: Project kickoff"
+        detail: "Hand Claude your proposal and get a first draft in minutes, then work out in small groups what questions to ask of it. Bring your laptop with Claude Code installed."
         due:
           - text: "HW3 due (automata and Gray-Scott)"
 
@@ -356,35 +398,80 @@ weeks:
             text: "Read the Chapter 5 core text"
             url: ch5_text
           - kind: required
-            text: "Chapter 5 code along: Returning to Shapes, An Introduction to Methods"
-            url: ca_methods
-            minutes: 107
+            text: "Code along 5.1: Methods on Shapes"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/methods-on-shapes-in-python/"
+            minutes: 39
+            note: "Code along in a copy of Starter Code/shapes_methods."
           - kind: required
-            text: "Data for Trees"
-            url: ca_datatrees
-            minutes: 7
+            text: "Code along 5.2: Everything Is an Object"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/everything-is-an-object-in-python/"
+            minutes: 23
+          - kind: required
+            text: "Code along 5.3: Designing Data for Trees"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/designing-data-for-trees-in-python/"
+            minutes: 37
+          - kind: required
+            text: "Pull the course repository and copy Starter Code/upgma into python/src/; we build from it in class"
+            url: "https://github.com/phcompeau/ProgrammingforScientists2026Undergrad"
+          - kind: required
+            text: "Install R, then RStudio Desktop; we use them on Thursday to draw our trees"
+            url: "https://cran.r-project.org/"
+            note: "Install R first from CRAN, then RStudio Desktop from https://posit.co/download/rstudio-desktop/. Then open RStudio and run install.packages(c(\"ape\", \"rstudioapi\")) in its console."
+          - kind: after
+            text: "Code along 5.4: How UPGMA Works"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/how-upgma-works/"
+            minutes: 25
+          - kind: after
+            text: "Code along 5.5: Planning UPGMA Top-Down"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/planning-upgma-top-down-in-python/"
+            minutes: 44
+          - kind: after
+            text: "Code along 5.6: Validating Input, Initializing the Tree, and What Slices Copy"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/validating-input-initializing-the-tree-and-what-slices-copy/"
+            minutes: 25
+          - kind: after
+            text: "Code along 5.7: Shrinking the Matrix and Clusters"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/shrinking-the-matrix-and-clusters-in-python/"
+            minutes: 35
       - date: 2026-10-22
         kind: lecture
         title: "Trees II"
-        detail: "We finish UPGMA and apply it to real data."
+        detail: "We finish the UPGMA engine with recursion, then visualize trees built from real data. We discuss Newick format only at a high level; the code that writes it is already in the starter code."
         prepare:
+          - kind: required
+            text: "Code along 5.10: Newick Format"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/newick-format-in-python/"
+            minutes: 26
+            note: "Watch for the idea; you do not need to write this code. to_newick_ages() is already filled in inside Starter Code/upgma/datatypes.py. If you copied the starter folder before Saturday, October 17, pull the repository and copy that method into your own datatypes.py."
           - kind: after
-            text: "Recursion and Completing UPGMA covers the remaining details, including Newick format"
-            url: ca_recursion
-            minutes: 123
+            text: "Code along 5.8: An Introduction to Recursion"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/an-introduction-to-recursion-in-python/"
+            minutes: 25
+          - kind: after
+            text: "Code along 5.9: Counting Leaves Recursively"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/counting-leaves-recursively-in-python/"
+            minutes: 26
+          - kind: after
+            text: "Code along 5.11: Running UPGMA on Real Data"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/running-upgma-on-real-data-in-python/"
+            minutes: 18
+          - kind: after
+            text: "Code along 5.12: Touring Our Evolutionary Trees"
+            url: "https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/touring-our-evolutionary-trees/"
+            minutes: 27
       - date: 2026-10-23
         kind: recitation
         title: "Recitation 6: Binary search trees"
         detail: "Recursion returns: range queries on the E. coli gene table."
         due:
-          - text: "HW4 due (boids). Last hand-built assignment; AI tools unlock from HW5 onward."
+          - text: "HW4 due (boids)"
             flag: true
 
   - title: "Midterm 1"
     label: "Week 8"
     start: 2026-10-26
     end: 2026-10-30
-    note: "No new code alongs this week."
+    note: "Midterm 1 is Tuesday. Chapter 6 starts Thursday, with nothing to prepare."
     days:
       - date: 2026-10-27
         kind: exam
@@ -392,17 +479,37 @@ weeks:
         detail: "Monte Carlo and PRNGs, cellular automata, top-down design, OOP."
       - date: 2026-10-29
         kind: lecture
-        title: "To be announced"
-        tbd: true
+        title: "Parallel I"
+        detail: "Why parallelism, and our first parallel program. Nothing to prepare: we build it together the class after the exam. Code alongs 6.1 to 6.3 replace the daily challenge today."
+        prepare:
+          - kind: after
+            text: "Code along 6.1: Parallelism vs. Concurrency"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallelism-vs-concurrency/"
+            minutes: 15
+          - kind: after
+            text: "Code along 6.2: Summing a List Across Processes"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/summing-a-list-across-processes-in-python/"
+            minutes: 40
+          - kind: after
+            text: "Code along 6.3: Any Number of Processes and Timing the Speedup"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/any-number-of-processes-and-timing-the-speedup-in-python/"
+            minutes: 37
+            note: "Do all three in place of today's daily challenge; if we did not reach 6.3 in class, it is new material."
       - date: 2026-10-30
         kind: no-class
         title: "No recitation: optional Midterm 1 debrief and project office hours"
         detail: "The TAs open GHC 4211 at the usual section times. Attendance is not taken."
+        due:
+          - text: "Project repository link due on Canvas (set up your build journal first)"
+            url: "project/journal/"
+          - text: "Revised project proposal due (only if we asked for one)"
+            url: "project/Project_Description_F26.pdf"
 
-  - title: "Parallel programming 1"
+  - title: "Simulating Chemical Reactions with Parallel Programming"
     label: "Week 9"
     start: 2026-11-02
     end: 2026-11-06
+    note: "Project TA check-ins run from Wednesday, November 4 through Friday, November 13."
     days:
       - date: 2026-11-02
         kind: deadline
@@ -413,44 +520,94 @@ weeks:
         title: "Election Day, no class"
       - date: 2026-11-05
         kind: lecture
-        title: "Parallel I"
-        detail: "Summing a list in parallel and timing the speedup."
+        title: "Parallel II"
+        detail: "Simulating diffusion, then parallelizing it with a pool of workers."
         prepare:
           - kind: required
-            text: "Read the assigned introduction to parallelism versus concurrency"
+            text: "Code along 6.4: Parallel Craps"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallel-craps-in-python/"
+            minutes: 41
+            note: "The parallel pattern from code alongs 6.2 and 6.3, applied to a Monte Carlo simulation."
           - kind: required
-            text: "Watch Parallel Programming Part 1 on YouTube"
-            minutes: 104
+            text: "Download diffusion-python.zip from code along 6.5 and unzip it into python/src/; we build from it in class"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/a-serial-diffusion-simulator-in-python/"
+          - kind: after
+            text: "Code along 6.5: A Serial Diffusion Simulator"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/a-serial-diffusion-simulator-in-python/"
+            minutes: 19
+          - kind: after
+            text: "Code along 6.6: Parallel Diffusion with Pool and starmap"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallel-diffusion-with-pool-and-starmap-in-python/"
+            minutes: 49
       - date: 2026-11-06
         kind: recitation
         title: "Recitation 7: Stacks and queues"
         detail: "The call stack and the work queue, built from a linked list; validating RNA structures and Newick trees."
 
-  - title: "Parallel programming 2 and assembly 1"
+  - title: "Reaction-Diffusion and the Dark Heart of Computer Science"
     label: "Week 10"
     start: 2026-11-09
     end: 2026-11-13
+    note: "Project TA check-ins continue through Friday, November 13."
     days:
       - date: 2026-11-10
         kind: lecture
-        title: "Parallel II"
-        detail: "Parallel craps and a parallel reaction-diffusion simulator."
+        title: "Parallel III"
+        detail: "Reaction-diffusion, the point of the chapter: we apply reactions, then tour the patterns that predators, epidemics, and rock paper scissors produce."
+        prepare:
+          - kind: required
+            text: "Code along 6.7: Reaction-Diffusion: Designing the Serial Engine"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/reaction-diffusion-designing-the-serial-engine-in-python/"
+            minutes: 34
+            note: "Download reaction-diffusion-python.zip from this page; we build on it in class."
+          - kind: after
+            text: "Code along 6.8: Reaction-Diffusion: Applying Reactions"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/reaction-diffusion-applying-reactions-in-python/"
+            minutes: 34
+          - kind: after
+            text: "Code along 6.11: A Tour of Reaction Systems"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/a-tour-of-reaction-systems/"
+            minutes: 36
+          - kind: after
+            text: "Code along 6.9: Parallel Reaction-Diffusion: Strips and Halos"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallel-reaction-diffusion-strips-and-halos-in-python/"
+            minutes: 29
+            note: "New material, not covered in class. Needed for HW6: dividing a board into strips and handling the boundaries between them."
+          - kind: after
+            text: "Code along 6.10: Parallel Reaction-Diffusion: Processing Strips"
+            url: "https://programmingforlovers.com/chapter-6/chapter-6-python-code-alongs/parallel-reaction-diffusion-processing-strips-in-python/"
+            minutes: 28
+            note: "New material, not covered in class. Needed for HW6."
       - date: 2026-11-12
         kind: lecture
         title: "Assembly I"
+        detail: "Come in knowing binary and hexadecimal; we meet X-Toy, a virtual computer, and its bitwise operations."
         prepare:
-          - kind: reference
-            text: "Parallel Programming Part 2 is on YouTube as a companion"
-            minutes: 134
-          - kind: reference
-            text: "The reaction-diffusion build is on YouTube as a companion"
-            minutes: 188
+          - kind: required
+            text: "Code along 7.1: The CPU, Memory, and Binary"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/the-cpu-memory-and-binary/"
+            minutes: 29
+            note: "7.1 and 7.2 are one continuous lesson on the math of binary and hexadecimal, and the only prep for the rest of the course; Wednesday's daily challenge practices it. Every later code along we build together in class."
+          - kind: required
+            text: "Code along 7.2: Hexadecimal: A Shorthand for Binary"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/hexadecimal-a-shorthand-for-binary/"
+            minutes: 27
+          - kind: required
+            text: "Install Visual X-TOY"
+            url: "https://lift.cs.princeton.edu/xtoy/"
+          - kind: after
+            text: "Code along 7.3: Meet X-Toy, a Virtual Computer"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/meet-x-toy/"
+            minutes: 38
+          - kind: after
+            text: "Code along 7.4: Bitwise Operations in X-Toy"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/bitwise-operations-in-x-toy/"
+            minutes: 20
       - date: 2026-11-13
-        kind: recitation
-        title: "Recitation 8: Graphs and breadth-first search"
-        detail: "Contact tracing on a real contact network."
+        kind: no-class
+        title: "No recitation: AI4Bio symposium"
 
-  - title: "Assembly 2 and theory 1"
+  - title: "Assembly Language: Loops, Functions, and GCD"
     label: "Week 11"
     start: 2026-11-16
     end: 2026-11-20
@@ -462,26 +619,44 @@ weeks:
       - date: 2026-11-17
         kind: lecture
         title: "Assembly II"
+        detail: "Negative numbers, branching, and our first loops and functions in X-Toy. Nothing new to prepare."
         prepare:
-          - kind: required
-            text: "Read the assigned introduction to memory management and binary"
+          - kind: after
+            text: "Code along 7.5: Negative Numbers and Two's Complement"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/negative-numbers-and-twos-complement-in-x-toy/"
+            minutes: 13
+          - kind: after
+            text: "Code along 7.6: Indirect Memory, Branching, and If/Else"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/indirect-memory-branching-and-if-else-in-x-toy/"
+            minutes: 15
+          - kind: after
+            text: "Code along 7.7: Loops and Functions in X-Toy: Multiplication"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/loops-and-functions-in-x-toy/"
+            minutes: 34
+            note: "Needed for HW7."
       - date: 2026-11-19
         kind: lecture
-        title: "Theory I"
-        detail: "Turing machines and the halting problem."
+        title: "Assembly III"
+        detail: "Subroutines in X-Toy: computing a GCD the slow way. Nothing new to prepare."
         prepare:
-          - kind: reference
-            text: "Assembly Language Part 1 is on YouTube for review and for HW7"
-            minutes: 114
-          - kind: reference
-            text: "Assembly Language Part 2 is on YouTube for review and for HW7"
-            minutes: 120
+          - kind: after
+            text: "Code along 7.8: The Trivial GCD Algorithm in X-Toy"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/trivial-gcd-in-x-toy/"
+            minutes: 36
+          - kind: after
+            text: "Code along 7.9: Subroutines in X-Toy: Running Trivial GCD"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/subroutines-for-trivial-gcd-in-x-toy/"
+            minutes: 32
+            note: "Needed for HW7."
       - date: 2026-11-20
         kind: recitation
-        title: "Recitation 9: Depth-first search and hard problems"
+        title: "Recitation 8: Depth-first search and hard problems"
         detail: "Backtracking for the knight's tour, and why some graph questions may never be easy."
+        due:
+          - text: "First version of your project app live on the web"
+            url: "project/Project_Description_F26.pdf"
 
-  - title: "Theory 2 and Thanksgiving"
+  - title: "The Limits of the Machine, and Thanksgiving"
     label: "Week 12"
     start: 2026-11-23
     end: 2026-11-27
@@ -489,8 +664,21 @@ weeks:
     days:
       - date: 2026-11-24
         kind: lecture
-        title: "Theory II"
-        detail: "P versus NP."
+        title: "Assembly IV: The limits of the machine"
+        detail: "Euclid's beautiful speedup for GCD, paradoxes of self-reference, then Turing machines and the halting problem: what no computer can ever do. Nothing new to prepare."
+        prepare:
+          - kind: after
+            text: "Code along 7.10: Euclid's GCD Algorithm in X-Toy: A Beautiful Speedup"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/euclids-gcd-algorithm-in-x-toy/"
+            minutes: 18
+          - kind: after
+            text: "Code along 7.11: The Limits of the Machine: Self-Reference and Programs That Rewrite Themselves"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/self-reference-and-programs-that-rewrite-themselves/"
+            minutes: 27
+          - kind: after
+            text: "Code along 7.12: Turing Machines and the Halting Problem"
+            url: "https://programmingforlovers.com/chapter-7/chapter-7-python-code-alongs/turing-machines-and-the-halting-problem/"
+            minutes: 31
       - date: 2026-11-26
         kind: no-class
         title: "Thanksgiving, no class and no recitation"
@@ -506,10 +694,15 @@ weeks:
           - text: "HW7 due (assembly)"
       - date: 2026-12-01
         kind: lecture
-        title: "Project presentations"
+        title: "Project demo day"
+        detail: "A science fair: half the class demos at tables while the other half walks around, then we swap. Practice for Thursday."
+        due:
+          - text: "Final project app, code, and video due"
+            url: "project/Project_Description_F26.pdf"
       - date: 2026-12-03
-        kind: lecture
-        title: "Project presentations"
+        kind: exam
+        title: "Project assessment, in class"
+        detail: "Closed and on paper, about your own project."
       - date: 2026-12-04
         kind: no-class
         title: "No recitation: optional Midterm 2 review"
@@ -518,10 +711,9 @@ weeks:
   - title: "Finals week"
     label: "Finals"
     start: 2026-12-07
-    end: 2026-12-11
+    end: 2026-12-13
     days:
-      - date: 2026-12-07
+      - date: 2026-12-13
         kind: exam
         title: "Midterm 2, held in the final exam period"
-        detail: "OOP II, parallel programming, assembly language, and theory. Exact date and time set by the registrar."
-        tbd: true
+        detail: "Sunday 5:30-8:30 p.m., in person; room to be announced. OOP II, parallel programming, assembly language, and theory."

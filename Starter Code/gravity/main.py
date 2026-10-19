@@ -5,30 +5,21 @@ Usage:
     python main.py <scenario_name> <num_gens> <time_step> <canvas_width> <drawing_frequency>
 
 Example:
-    python main.py jupiter_moons 2000 0.01 800 5
+    python main.py jupiter_moons 1000 60 1500 10
 
 This will read:   data/jupiter_moons.txt
 and write video:  output/jupiter_moons.mp4
 """
 
 import sys
-import os
-import time
 import pygame
-import imageio
 from custom_io import read_universe
 from gravity import simulate_gravity
-from drawing import animate_system, pygame_surface_to_numpy, draw_to_canvas, save_video_from_surfaces
+from drawing import animate_system
+from animate import animate_surfaces
 
 def main():
-    """
-    Run the full pipeline:
-      1) read universe from file
-      2) simulate gravity for N generations
-      3) render selected frames to pygame surfaces
-      4) encode frames to an MP4 video
-    """
-    print("Let's simulate gravity!")
+    print("Building a gravity simulator.")
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,2 @@
+0:dark_gray
+1:white

@@ -1,74 +1,136 @@
 from datatypes import GameBoard
 
-def read_board_from_file(filename: str) -> GameBoard:
+def read_rules_from_file(filename: str) -> dict[str, str]:
     """
-    Read a CSV of integers into a GameBoard (2D list[int]).
-    """
-    if not isinstance(filename, str) or len(filename) == 0:
-        raise ValueError("filename must be a non-empty string.")
-    board: GameBoard = []
-    with open(filename, "r", encoding="utf-8") as f:
-        # strip trailing/leading whitespace, split into lines
-        lines = f.read().strip().splitlines()
-    for line in lines:
-        elements = line.split(",")
-        board.append(set_row_values(elements))
-    return board
+    read_rules_from_file takes a filename as a string and reads the rule strings provided in this file.
+    It stores the result in a dictionary mapping neighborhood strings to strings.
 
-def set_row_values(line_elements: list[str]) -> list[int]:
-    """
-    Convert a list of numeric strings into a row of ints.
-    """
-    if not isinstance(line_elements, list) or len(line_elements) == 0:
-        raise ValueError("line_elements must be a non-empty list of strings.")
-    
-    current_row = []
-
-    # range over line elements and parse each one
-    for element in line_elements:
-        # we have a string, we need an integer 
-        current_row.append(int(element))
-
-    return current_row
-
-def read_rules_from_file(filename: str) -> dict[str, int]:
-    """
-    Read rules from a text file where each line looks like: <neighborhood>:<next_state>
+    Args:
+        filename (str): The name of the file containing the rule strings.
 
     Returns:
-        dict[str, int]: mapping neighborhood-string -> next-state int
+        dict[str, str]: A dictionary where keys are neighborhood strings and values are the resulting state strings.
     """
     if not isinstance(filename, str) or len(filename) == 0:
         raise ValueError("filename must be a non-empty string.")
-    
-    rules: dict[str, int] = dict()  # or {}
 
-    # read in file and set the elements of the dictionary 
+    # create a new dictionary (aka map) to store the rules
+    rules: dict[str, str] = dict()
+
+    # open and read the file
     with open(filename, "r") as file:
         giant_string = file.read()
 
-    # parse giant_string one line at a time 
+    # parse out the file contents as a list of strings, one line at a time
     trimmed_giant_string = giant_string.strip()
-
     lines = trimmed_giant_string.splitlines()
-    # lines is a list of strings, one corresponding to each line of the file 
 
-    # range over lines and parse each rule 
     for current_line in lines:
-        # split line at the colon 
         parts = current_line.split(":")
 
-        # how many parts are there? 2!
+        # parts should have exactly two strings in it
         if len(parts) != 2:
-            raise ValueError("Someone added too many colons or not enough into our rule set.")
-        
-        # key is first element in parts 
+            raise ValueError("Too many colons or not enough in rule.")
+
+        # first part is the neighborhood string
         neighborhood_string = parts[0]
 
-        # value is second element; need to convert to int
-        new_state = int(parts[1])
+        # second part is the state of the cell in the next generation as a string
+        new_state = parts[1]
 
-        # add current rule to dictionary 
+        # add the current neighborhood and updated state to our rule dictionary (aka map)
         rules[neighborhood_string] = new_state
 
     return rules
+
+
+def read_color_map_from_file(filename: str) -> dict[str, str]:
+    """
+    Reads a color map configuration from a txt file and returns it as a dictionary.
+
+    Args:
+        filename (str): The path to the color map file.
+
+    Returns:
+        dict[str, str]: A dictionary mapping state strings to color name strings.
+        Color name values must be one of: dark_gray, white, red, green, yellow,
+        orange, purple, blue, or black.
+    """
+    with open(filename, 'r') as f:
+        giant_string = f.read()
+
+    trimmed_giant_string = giant_string.strip()
+    lines = trimmed_giant_string.splitlines()
+
+    color_map: dict[str, str] = {}
+
+    for line in lines:
+        # each line looks like "0:dark_gray"
+        parts = line.split(':')
+        state = parts[0].strip()
+        color = parts[1].strip()
+
+        color_map[state] = color
+
+    return color_map
+
+
+def read_board_from_file(filename: str) -> GameBoard:
+    """
+    Reads a board configuration from a CSV file and returns it as a GameBoard.
+
+    Args:
+        filename (str): The path to the CSV file.
+
+    Returns:
+        GameBoard: A 2D list of strings representing the board.
+    """
+    if not isinstance(filename, str) or len(filename) == 0:
+        raise ValueError("filename must be a non-empty string.")
+
+    # open(filename, 'r') opens the file in read mode ('r'), returning a file object (f).
+    # with ensures the file is automatically closed when the block ends — even if there’s an error.
+    with open(filename, 'r') as f: 
+        # first, convert the whole file to a string
+        giant_string = f.read()
+
+    # trim any space at the start or end of file
+    trimmed_giant_string = giant_string.strip()
+
+    # split the long string into multiple strings, one for each line
+    lines = trimmed_giant_string.splitlines()
+
+    # lines is a list of strings, each element is each line of the file
+    board = []
+
+    # we will iterate over each line, parse the data in each line, and build the board
+    for line in lines:
+        line_elements = line.split(',')
+        # line_elements contains a list of strings, one for each element in the row, i.e., a bunch of "0" and "1" strings
+        board.append(set_row_values(line_elements))
+
+    return board
+
+
+def set_row_values(line_elements: list[str]) -> list[str]:
+    """
+    Convert a list of state strings into a list of strings.
+
+    Args:
+        line_elements (List[str]): A list of strings, where each element
+                                   represents a cell state.
+
+    Returns:
+        list[str]: A list of state strings parsed from the input strings.
+    """
+    if not isinstance(line_elements, list) or len(line_elements) == 0:
+        raise ValueError("line_elements must be a non-empty list of strings.")
+
+    current_row = []
+
+    # parse the line and keep each element as a string
+    for element in line_elements:
+        val = element
+        current_row.append(val)
+
+    return current_row

@@ -198,6 +198,27 @@ def render_week(week: dict[str, Any], course: dict[str, Any], links: dict[str, s
     </section>"""
 
 
+def render_project(project: dict[str, Any]) -> str:
+    """Render the Final Project box that sits under the repository box."""
+    pdf = esc(project["pdf"])
+    items: list[str] = []
+    for resource in project.get("resources", []):
+        label = esc(resource["label"])
+        if resource.get("url"):
+            label = f'<a href="{esc(resource["url"])}" target="_blank" rel="noopener">{label}</a>'
+        body = esc(resource["text"])
+        if resource.get("link2_url"):
+            link2 = f'<a href="{esc(resource["link2_url"])}" target="_blank" rel="noopener">{esc(resource["link2_label"])}</a>'
+            body = body + " " + link2 + ", " + esc(resource.get("text2", ""))
+        items.append(f"<li><b>{label}.</b> {body}</li>")
+    return f"""
+  <section class="repo project" id="project">
+    <h3>Final project</h3>
+    <p>{esc(project["intro"])} <a href="{pdf}" target="_blank" rel="noopener">Read the project description (PDF)</a>.</p>
+    <ul>{"".join(items)}</ul>
+  </section>"""
+
+
 def render_page(data: dict[str, Any]) -> str:
     """Render the whole schedule page."""
     course = data["course"]
@@ -209,7 +230,11 @@ def render_page(data: dict[str, Any]) -> str:
     repo = course["repo"]
     repo_short = repo.split("://", 1)[-1].rstrip("/")
     repo_clone = repo.rstrip("/") + ".git"
+    project = ""
+    if data.get("project"):
+        project = render_project(data["project"])
     return PAGE.replace("{{WEEKS}}", "".join(weeks)) \
+               .replace("{{PROJECT}}", project) \
                .replace("{{NUMBER}}", esc(course["number"])) \
                .replace("{{TITLE}}", esc(course["title"])) \
                .replace("{{TERM}}", esc(course["term"])) \
@@ -315,6 +340,10 @@ PAGE = r"""<title>02-120 Semester Map</title>
     font-weight: 600; font-size: 19px; color: var(--ink);
   }
   .repo p { margin: 0 0 10px; }
+  .repo ul { margin: 0; padding-left: 20px; }
+  .repo li { margin: 0 0 8px; }
+  .repo li:last-child { margin-bottom: 0; }
+  .project { border-left-color: var(--red); }
   .repo a { overflow-wrap: anywhere; }
   .repo p:last-child { margin-bottom: 0; }
   .repo code {
@@ -491,6 +520,7 @@ PAGE = r"""<title>02-120 Semester Map</title>
       <a href="{{DAILY}}" target="_blank" rel="noopener">Daily challenges</a>
       <a href="https://programmingforlovers.com" target="_blank" rel="noopener">Code alongs</a>
       <a href="{{REPO}}" target="_blank" rel="noopener">Course code on GitHub</a>
+      <a href="#project">Final project</a>
     </nav>
   </header>
 
@@ -502,6 +532,7 @@ PAGE = r"""<title>02-120 Semester Map</title>
     <code class="clone">git clone {{REPO_CLONE}}</code>
     <p>New to Git? <a href="https://desktop.github.com" target="_blank" rel="noopener">GitHub Desktop</a> does the same thing with buttons: <b>File &gt; Clone Repository &gt; URL</b>, then <b>Fetch origin</b> and <b>Pull</b> each week. The <a href="{{REPO}}#readme" target="_blank" rel="noopener">repository README</a> explains how <code>Starter Code</code> and <code>Finished Code</code> are organized, and how to keep your own edits out of Git's way.</p>
   </section>
+{{PROJECT}}
 
   <div class="legend">
     <span><i class="swatch" style="background:var(--rule-strong)"></i>Lecture</span>

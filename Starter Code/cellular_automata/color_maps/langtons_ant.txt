@@ -1,0 +1,11 @@
+0:white
+1:black
+2:red
+3:orange
+4:purple
+5:blue
+6:red
+7:orange
+8:purple
+9:blue
+A:green

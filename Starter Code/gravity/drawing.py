@@ -4,51 +4,11 @@ Rendering helpers for animating a Universe with pygame.
 
 import math
 import pygame
-import imageio
-import numpy as np  # for surface to numpy arrays
+from animate import animate_surfaces, pygame_surface_to_numpy
 from datatypes import Body, OrderedPair, Universe
 
 
 # Drawing functions
-
-def save_video_from_surfaces(
-    surfaces: list[pygame.Surface],
-    video_path: str,
-    fps: int,
-    codec: str,
-    quality: int,
-) -> None:
-    """
-    Save a list of pygame.Surface frames to a video file.
-
-    Args:
-        surfaces: List of pygame.Surface objects representing frames.
-        video_path: Path where the video will be written.
-        fps: Frames per second for the output video.
-        codec: Video codec (default "libx264", requires ffmpeg).
-        quality: Quality level for encoding (higher = better quality, larger file).
-
-    Returns:
-        None
-    """
-    writer = imageio.get_writer(video_path, fps=fps, codec=codec, quality=quality)
-
-    for surface in surfaces:
-        frame = pygame.surfarray.array3d(surface).swapaxes(0, 1)  # (H, W, 3)
-        writer.append_data(frame)
-
-    writer.close()
-
-def pygame_surface_to_numpy(surface: pygame.Surface) -> np.ndarray:
-    """
-    Convert a pygame Surface to a NumPy RGB array of shape (H, W, 3).
-
-    This is handy for exporting frames via imageio/moviepy later.
-    """
-    if not isinstance(surface, pygame.Surface):
-        raise TypeError("surface must be a pygame.Surface")
-
-    return pygame.surfarray.array3d(surface).swapaxes(0, 1)
 
 def animate_system(
     time_points: list[Universe],
@@ -83,8 +43,23 @@ def animate_system(
     if not isinstance(drawing_frequency, int) or drawing_frequency <= 0:
         raise ValueError("drawing_frequency must be a positive integer")
 
-    # TODO: add code here
-    pass
+    pygame.init()
+
+    # Update trails every step; only render a surface every drawing_frequency steps
+    TRAIL_FREQUENCY = 1
+    trails: dict[int, list[OrderedPair]] = {i: [] for i in range(len(time_points[0].bodies))}
+    surfaces: list[pygame.Surface] = []
+
+    for i, u in enumerate(time_points):
+        if i % TRAIL_FREQUENCY == 0:
+            for idx, b in enumerate(u.bodies):
+                trails[idx].append(OrderedPair(b.position.x, b.position.y))
+
+        if i % drawing_frequency == 0:
+            surfaces.append(draw_to_canvas(u, canvas_width, trails))
+
+    pygame.quit()
+    return surfaces
 
 def draw_to_canvas(
     u: Universe,
@@ -102,5 +77,25 @@ def draw_to_canvas(
     if not isinstance(trails, dict):
         raise TypeError("trails must be a dict[int, list[OrderedPair]]")
 
-    # TODO: add code here
-    pass
+    scale = canvas_width / u.width
+
+    surface = pygame.Surface((canvas_width, canvas_width))
+    surface.fill((0, 0, 0))  # black background
+
+    # Draw trails
+    for idx, trail in trails.items():
+        color = (u.bodies[idx].red, u.bodies[idx].green, u.bodies[idx].blue)
+        for pos in trail:
+            px = int(pos.x * scale)
+            py = int(pos.y * scale)
+            if 0 <= px < canvas_width and 0 <= py < canvas_width:
+                pygame.draw.circle(surface, color, (px, py), 1)
+
+    # Draw bodies
+    for b in u.bodies:
+        px = int(b.position.x * scale)
+        py = int(b.position.y * scale)
+        radius = max(2, int(b.radius * scale))
+        pygame.draw.circle(surface, (b.red, b.green, b.blue), (px, py), radius)
+
+    return surface

@@ -1,0 +1,3 @@
+Complete mitochondrial genome sequences for 9 species including great apes, Old World monkeys, a rodent outgroup (mouse), and a bird outgroup (zebra finch), downloaded from NCBI RefSeq. The tree should recover the expected primate phylogeny: human and chimpanzee/bonobo as closest relatives, then gorilla, then orangutan, with gibbon and rhesus macaque as successive outgroups within primates.
+
+Pairwise distances are Jukes-Cantor corrected distances computed from MAFFT-aligned complete mitochondrial genome sequences.

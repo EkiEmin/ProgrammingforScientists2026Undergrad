@@ -1,3 +1,6 @@
+from dataclasses import dataclass, field
+
+@dataclass
 class OrderedPair:
     """
     Represents a point or vector in two-dimensional space.
@@ -6,12 +9,10 @@ class OrderedPair:
         x (float): The x-coordinate of the point or vector.
         y (float): The y-coordinate of the point or vector.
     """
+    x: float = 0.0
+    y: float = 0.0
 
-    def __init__(self, x: float = 0.0, y: float = 0.0):
-        self.x = x
-        self.y = y
-
-
+@dataclass
 class Boid:
     """
     Represents our "bird" object.
@@ -24,13 +25,12 @@ class Boid:
         velocity (OrderedPair): The current velocity of the boid.
         acceleration (OrderedPair): The current acceleration of the boid.
     """
-
-    def __init__(self, position: OrderedPair, velocity: OrderedPair, acceleration: OrderedPair):
-        self.position = position
-        self.velocity = velocity
-        self.acceleration = acceleration
+    position: OrderedPair = field(default_factory=OrderedPair)
+    velocity: OrderedPair = field(default_factory=OrderedPair)
+    acceleration: OrderedPair = field(default_factory=OrderedPair)
 
 
+@dataclass
 class Sky:
     """
     Represents a single time point of the simulation.
@@ -47,21 +47,11 @@ class Sky:
         alignment_factor (float): The weighting factor for the alignment behavior.
         cohesion_factor (float): The weighting factor for the cohesion behavior.
     """
-    def __init__(
-        self,
-        width: float = 0.0,
-        boids: list[Boid] = None,
-        max_boid_speed: float = 0.0,
-        proximity: float = 0.0,
-        separation_factor: float = 0.0,
-        alignment_factor: float = 0.0,
-        cohesion_factor: float = 0.0,
-    ):
-        self.width = width
-        self.boids = boids if boids is not None else []
-        self.max_boid_speed = max_boid_speed
-        self.proximity = proximity
-        self.separation_factor = separation_factor
-        self.alignment_factor = alignment_factor
-        self.cohesion_factor = cohesion_factor
+    width: float = 0.0
+    boids: list[Boid] = field(default_factory=list)
+    max_boid_speed: float = 0.0  # fastest speed that a boid can fly
+    proximity: float = 0.0       # used to determine if boids are close enough for forces to apply
+    separation_factor: float = 0.0
+    alignment_factor: float = 0.0
+    cohesion_factor: float = 0.0
 

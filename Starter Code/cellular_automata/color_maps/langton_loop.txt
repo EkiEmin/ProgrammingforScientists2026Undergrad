@@ -1,0 +1,9 @@
+0:dark_gray
+1:white
+2:red
+3:green
+4:yellow
+5:orange
+6:purple
+7:blue
+8:black
