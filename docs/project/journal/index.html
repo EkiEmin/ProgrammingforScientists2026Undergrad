@@ -62,26 +62,28 @@
 <p class="sub">Do this once, in your project repository. It takes about a minute.</p>
 
 <h2>For you</h2>
-<p>Open Claude Code in your project folder and paste this:</p>
-<div class="prompt"><code>Follow the setup instructions at https://phcompeau.github.io/ProgrammingforScientists2026Undergrad/project/journal/ for my 02-120 build journal, then tell me what you did.</code></div>
-<p>After that, every Claude Code session in this folder is copied into a <code>journal/</code> folder automatically, including the sessions you had before you set this up. All you have to do is commit and push regularly. We collect your repository at 11:59 pm on each checkpoint date: October 30, November 10, November 20, and December 1.</p>
-<p><b>Use Claude Code in a terminal or in the VS Code extension.</b> The journal records only those sessions. Chats and Cowork in the Claude app (desktop or web) run in a cloud workspace, so nothing you build there reaches your journal, and we cannot give you credit for it. If you did project work in the app (for example, in Recitation 5), continue it in Claude Code inside your project folder.</p>
-<p><b>On Windows,</b> if typing <code>claude</code> says it is not recognized right after you install it, the installer's folder is not on your PATH yet. In PowerShell, run <code>[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:USERPROFILE\.local\bin", "User")</code>, then close and reopen the terminal.</p>
-<p>Then, by Friday, October 30, submit your repository link on Canvas (<b>Project Repository Link</b>) and add GitHub user <code>phcompeau</code> as a collaborator if your repository is private.</p>
-<p><b>Privacy.</b> Your journal holds only the sessions from this project folder, never your other folders or your personal memory and skills. Read through <code>journal/</code> before you push if you are worried, and never paste a password or API key into Claude Code. Only course staff read your journal.</p>
+<p>Open Claude Code (or Codex) in your project folder and paste this:</p>
+<div class="prompt"><code>Follow the setup instructions at https://phcompeau.github.io/ProgrammingforScientists2026Undergrad/project/journal/setup.txt for my 02-120 build journal, then tell me what you did.</code></div>
+<p>After that, every Claude Code and Codex session in this folder is copied into a <code>journal/</code> folder automatically, including the sessions you had before you set this up, and again every time you commit. All you have to do is commit and push regularly. We collect your repository at 11:59 pm on each checkpoint date: October 30, November 10, November 20, and December 1.</p>
+<p><b>Reading your journal.</b> The raw logs in <code>journal/</code> are JSON, which is hard to read. A readable copy of every session (your prompts, the AI's replies, and a one-line note for each action it took) is written to <code>journal/readable/</code>. Open any file there on GitHub and it displays as a normal page. This is also what a classmate or TA reads when they review your work.</p>
+<p><b>Claude Code or Codex both work,</b> in a terminal or in the VS Code extension. Either one records its sessions on your computer, and the journal picks them up.</p>
 
-<h2>For Claude</h2>
-<p>You are setting up a student's build journal for the 02-120 final project. Work in the root of the student's project repository (the folder where Claude Code is running).</p>
+<h2>If you work in a chat app</h2>
+<p>Chats in ChatGPT (the website or app) or in the Claude app run in the cloud, so nothing from them reaches your journal on its own. They still count, but you have to share them yourself:</p>
 <ol>
-<li>First check that you are Claude Code running on the student's own computer, in a terminal or the VS Code extension, inside their project repository. If you are a chat or Cowork session in the Claude app, or you cannot see the repository's files on the student's computer, stop: tell the student that the journal only works in Claude Code and that they should open a terminal in their project folder, type <code>claude</code>, and paste the setup prompt there.</li>
-<li>Download <a href="save_journal.py">save_journal.py</a> from <code>https://phcompeau.github.io/ProgrammingforScientists2026Undergrad/project/journal/save_journal.py</code> and save it, unchanged, as <code>.claude/hooks/save_journal.py</code>.</li>
-<li>Add the hooks in <a href="settings.json">settings.json</a> (<code>https://phcompeau.github.io/ProgrammingforScientists2026Undergrad/project/journal/settings.json</code>) to the project's <code>.claude/settings.json</code>. If that file already exists, merge the <code>SessionStart</code> and <code>SessionEnd</code> entries into it without removing anything already there. Use <code>.claude/settings.json</code>, not <code>settings.local.json</code>, so that the hooks are committed with the repository.</li>
-<li>Run the script once by hand from the project root (<code>python3 .claude/hooks/save_journal.py</code>, or <code>python</code> on Windows) and confirm that <code>journal/</code> now contains one or more <code>.jsonl</code> files.</li>
-<li>Make sure that neither <code>journal/</code> nor <code>.claude/</code> is listed in <code>.gitignore</code>.</li>
-<li>Check the journal files for anything that looks like a password, API key, or token. If you find one, tell the student and help them redact it before committing.</li>
-<li>Commit <code>.claude/hooks/save_journal.py</code>, <code>.claude/settings.json</code>, and <code>journal/</code> with the message <code>Set up build journal</code>, and push.</li>
-<li>Tell the student what you did, and remind them to submit their repository link on Canvas by October 30 and to commit and push regularly.</li>
+<li>At the end of every chat session about your project, click <b>Share</b> and copy the link. A share link shows the chat only up to the moment you create it, so if you come back to the same chat later, share it again and update the link.</li>
+<li>Add one line per chat to <code>journal/chat_links.md</code> in your repository: the date, the link, and one sentence about what you worked on. For example: <code>2026-11-02 | https://chatgpt.com/share/... | Fixed the diffusion step in my Gillespie simulation</code></li>
+<li>Commit and push. Before each checkpoint, check that every project chat is on the list with an up-to-date link. A chat that is not on the list by the checkpoint does not count.</li>
 </ol>
+<p>Chats you had before October 31 count too: share them and add them to the list before checkpoint 2 (November 10). Going forward, we recommend building in Claude Code or Codex inside your project folder, since that is logged for you.</p>
+
+<h2>If something goes wrong</h2>
+<p><b>If the AI says a step was denied or blocked,</b> your permission mode is refusing the setup commands (auto mode in Claude Code does this). Press <code>Shift+Tab</code> until the mode reads "accept edits" or the default "ask" mode (in VS Code, click the mode name under the prompt box), then type <code>continue</code> and approve each step when asked. Once setup is done, you can switch back.</p>
+<p><b>If the push fails because GitHub asks for a username</b> (or "this computer has no saved GitHub login"), your setup is committed but this computer is not signed in to GitHub yet. The easiest fix is the GitHub CLI: install it from <a href="https://cli.github.com">cli.github.com</a> (on a Mac with Homebrew, <code>brew install gh</code>), then run <code>gh auth login</code>, choose GitHub.com, HTTPS, and "Login with a web browser", and finally run <code>gh auth setup-git</code>. Then push again (or ask your AI to). In VS Code, clicking <b>Sync Changes</b> in the Source Control panel and signing in when it asks also works.</p>
+<p><b>On Windows,</b> if typing <code>claude</code> says it is not recognized right after you install it, the installer's folder is not on your PATH yet. In PowerShell, run <code>[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:USERPROFILE\.local\bin", "User")</code>, then close and reopen the terminal.</p>
+<p>If you have not already, submit your repository link on Canvas (<b>Project Repository Link</b>) and add GitHub user <code>phcompeau</code> as a collaborator if your repository is private.</p>
+<p><b>Privacy.</b> Your journal holds only the sessions from this project folder, never your other folders or your personal memory and skills. Read through <code>journal/readable/</code> before you push if you are worried, and never paste a password or API key into your AI tool. Only course staff, and classmates you choose to show it to in recitation, read your journal.</p>
+
 </div>
 </body>
 </html>
